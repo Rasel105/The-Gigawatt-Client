@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "product_name": "Dell Inspiron",
+        "img": "https://i.ibb.co/58q8fVW/dell-2.png",
+        "description": "2018 Dell Inspiron 15 15.6 Inch Flagship Notebook Laptop Computer (Intel Core i5-7200U 2.5GHz, 8GB DDR4 RAM, 256GB SSD, MaxxAudio Sound, Intel HD Graphics 620, HD Webcam, Windows 10)",
+        "price": "580",
+        "min_order_quantity": "890",
+        "available_quantity": "4890",
+        "supplier_name": "Dell",
+        "sold": "0",
+        "email": "azad.is.rasel@gmail.com"
+    },
+    {
+        "id": 2,
+        "product_name": "HP 280 Pro G8 MT Core i5",
+        "img": "https://i.ibb.co/4JkSYb1/desktop.png",
+        "description": "The HP 280 Pro G8 MT Microtower Brand PC comes with Intel Core i5-11500 Processor (12M Cache, 2.70 GHz up to 4.60 GHz) and is equipped with Intel H570 Chipset.",
+        "price": "648",
+        "min_order_quantity": "890",
+        "available_quantity": "4890",
+        "supplier_name": "HP",
+        "sold": "0",
+        "email": "azad.is.rasel@gmail.com"
+    },
+    {
+        "id": 3,
+        "product_name": "HP ProBook 450 G8 15.6",
+        "img": "https://i.ibb.co/7zMjbw9/hp.png",
+        "description": "HP ProBook 450 G8 15.6 FHD Business Laptop Computer, Intel Quad-Core i5-1135G7 up to 4.2GHz (Beat i7-1065G7), 8GB DDR4 RAM, 256GB PCIe SSD, Backlit Keyboard, Windows 10 Pro, Conference Webcam",
+        "price": "980",
+        "min_order_quantity": "890",
+        "available_quantity": "4890",
+        "supplier_name": "HP",
+        "sold": "0",
+        "email": "azad.is.rasel@gmail.com"
+    },
+    {
+        "id": 4,
+        "product_name": "Logitech Ergo K860 Wireless",
+        "img": "https://i.ibb.co/dQ71Qyx/keyboard.png",
+        "description": "Logitech ERGO K860 Wireless Ergonomic Keyboard - Split Keyboard, Wrist Rest, Natural Typing, Stain-Resistant Fabric, Bluetooth and USB Connectivity, Compatible with Windows/Mac",
+        "price": "790",
+        "min_order_quantity": "890",
+        "available_quantity": "4890",
+        "supplier_name": "Logitech",
+        "sold": "0",
+        "email": "azad.is.rasel@gmail.com"
+    },
+    {
+        "id": 5,
+        "product_name": "Lenovo IdeaPad 3 Laptop",
+        "img": "https://i.ibb.co/MPDjdMm/laptop1.png",
+        "description": "Lenovo IdeaPad 3 Laptop, 15.6 FHD IPS Touchscreen, Intel i5-1135G7 (>i7-1065G7), Iris Xe Graphics, Wi-Fi 6, Camera, Type-C, Fingerprint, w/ Accessories",
+        "price": "860",
+        "min_order_quantity": "890",
+        "available_quantity": "4890",
+        "supplier_name": "Lenovo",
+        "sold": "0",
+        "email": "azad.is.rasel@gmail.com"
+    },
+    {
+        "id": 6,
+        "product_name": "Xiaomi Mi 4A 43-inch",
+        "img": "https://i.ibb.co/k9Fy6Q5/led.png",
+        "description": "Xiaomi Mi 4A 43-inch LED Smart TV device integrates a built-in mi field to provide heaps of free hd movies and tv suggests.",
+        "price": "860",
+        "min_order_quantity": "890",
+        "available_quantity": "4890",
+        "supplier_name": "Pran RFL",
+        "sold": "0",
+        "email": "azad.is.rasel@gmail.com"
+    }
+]

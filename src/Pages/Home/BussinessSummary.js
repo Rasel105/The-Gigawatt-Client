@@ -1,25 +1,30 @@
 import React from 'react';
+import { FcPositiveDynamic, FcSupport } from "react-icons/fc";
+import { VscOpenPreview } from 'react-icons/vsc';
 
 const BussinessSummary = () => {
     return (
-        <div>
+        <section className='w-9/12 mx-auto my-16'>
             <h2 className='text-4xl text-center text-secondary'>This is Bussiness Summary</h2>
-            <h2 className='text-2xl text-center'>Try to understand user expectaion</h2>
-            <div className='grid grid-cols-4 w-full mx-auto'>
-                <div>
-                    <h2>Free Delivery</h2>
+            <h2 className='text-2xl text-center mb-5'>Try to understand user expectaion</h2>
+            <div className='grid grid-cols-3 justify-items-center items-center'>
+                <div className='flex flex-col items-center'>
+                    <FcPositiveDynamic size={100} />
+                    <h2 className='text-5xl'>120M+</h2>
+                    <h2 className='text-3xl'>Annual revenue</h2>
                 </div>
-                <div>
-                    <h2>Free Delivery</h2>
+                <div className='flex flex-col items-center'>
+                    <VscOpenPreview size={100} />
+                    <h2 className='text-5xl'>33K+</h2>
+                    <p className='text-3xl'>Reviews</p>
                 </div>
-                <div>
-                    <h2>Free Delivery</h2>
-                </div>
-                <div>
-                    <h2>Free Delivery</h2>
+                <div className='flex flex-col items-center'>
+                    <FcSupport color='green' size={100}/>
+                    <h2 className='text-5xl'>50+</h2>
+                    <h2 className='text-3xl'>Tools</h2>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

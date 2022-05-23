@@ -3,7 +3,7 @@ import React from 'react';
 const MyOrders = () => {
     return (
         <div>
-            <h1 className='pt-40'>My Orders</h1>
+            <h1 className='pt-25 text-center'>My Orders</h1>
         </div>
     );
 };

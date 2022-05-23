@@ -6,6 +6,7 @@ import Loading from '../Shared/Loading';
 import Fade from 'react-reveal/Fade';
 import { FcGoogle } from "react-icons/fc";
 import Bounce from 'react-reveal/Bounce';
+import useToken from '../../hooks/useToken';
 
 
 const Login = () => {
@@ -19,14 +20,17 @@ const Login = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+    const [token] = useToken(user || gUser);
+
     const navigate = useNavigate();
 
     if (loading || gLoading || updating) {
         return <Loading />
     }
 
-    if (gUser || user) {
-        console.log(gUser, user);
+    if (token) {
+        navigate("/")
     }
     let signInError;
     if (error || gError || updateError) {

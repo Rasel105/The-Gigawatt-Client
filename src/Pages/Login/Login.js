@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import { FcGoogle } from "react-icons/fc";
 import Bounce from 'react-reveal/Bounce';
+import useToken from '../../hooks/useToken';
 
 
 const Login = () => {
@@ -16,20 +17,23 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, forgetSending, forgetError] = useSendPasswordResetEmail(auth);
-
+    const [token] = useToken();
     let signInError
 
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate]);
+
     if (loading || gLoading || forgetSending) {
         return <Loading />
     }
 
-    if (user || gUser) {
-        navigate(from, { replace: true });
-    }
     if (error || gError || forgetError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }

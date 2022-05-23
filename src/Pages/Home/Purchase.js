@@ -33,6 +33,7 @@ const Purchase = () => {
         const purchaseData = {
             userName: userName,
             email: email,
+            item: product.product_name,
             minimumOrder: minimumOrder,
             address: data.address,
             phone: data.phone

@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
+import ProductDetailModal from './ProductDetailModal';
 
 const Purchase = () => {
     const [user] = useAuthState(auth);
@@ -25,7 +26,10 @@ const Purchase = () => {
     const onSubmit = data => console.log(data);
     return (
         <>
-            <div className='grid lg:grid-cols-2 sm:grid-cols-1 w-10/12 mx-auto gap-5 pt-24'>
+            <div className='pt-20 mb-4 flex justify-end px-28'>
+                <label for="all-info" class="btn btn-primary modal-button">See Details</label>
+            </div>
+            <div className='grid lg:grid-cols-2 sm:grid-cols-1 w-10/12 mx-auto gap-5 '>
                 <div class="card card-compact w-96 bg-base-100 shadow-xl">
                     <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
                     <div class="card-body">
@@ -50,12 +54,16 @@ const Purchase = () => {
                         <label className="block mb-2 text-sm font-bold text-gray-700">Quntity</label>
                         <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Quntity' type="number" {...register("quantity", { required: true })} />
                         <div className='flex justify-end'>
-                            <button className='bg-sky-500/100 hover:bg-blue-800 py-2 px-4 mt-2 rounded-lg text-xl mx-2 text-white' type='submit'>
-                                Add
+                            <button className='btn btn-primary mt-2' type='submit'>
+                                Purchase
                             </button>
                         </div>
                     </form>
                 </div >
+                <ProductDetailModal
+                    email={email}
+                    userName={userName}
+                    product={product} />
             </div>
         </>
     );

@@ -11,7 +11,7 @@ const Home = () => {
             <Tools />
             <BussinessSummary />
             <Footer />
-
+            
         </div>
     );
 };

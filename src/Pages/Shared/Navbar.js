@@ -8,10 +8,10 @@ const Navbar = () => {
         <li><Link to="/">Review</Link></li>
         <li><Link to="/">Dashboard</Link></li>
         <li><Link to="/">Contact</Link></li>
-        <li><Link to="/">Login</Link></li>
+        <li><Link to="/login">Login</Link></li>
     </>
     return (
-        <div class="navbar bg-base-100 fixed z-30 px-12">
+        <div class="navbar bg-base-100 fixed z-30 px-12 mb-10">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">

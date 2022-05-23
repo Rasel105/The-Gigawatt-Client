@@ -6,9 +6,7 @@ const Dashboard = () => {
         <div class="drawer drawer-mobile pt-20">
             <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
-                {/* <!-- Page content here --> */}
-                {/* <label for="dashboard-sidebar" class="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
-                <h2 className='text-2xl font-bold text-purple-500'>Welcome to your Dashboard</h2>
+                <h2 className='text-2xl font-bold text-purple-500 text-center'>Welcome to your Dashboard</h2>
                 <Outlet />
             </div>
             <div class="drawer-side">

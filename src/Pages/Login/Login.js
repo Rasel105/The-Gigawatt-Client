@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import { FcGoogle } from "react-icons/fc";
@@ -18,12 +18,17 @@ const Login = () => {
     const [sendPasswordResetEmail, forgetSending, forgetError] = useSendPasswordResetEmail(auth);
 
     let signInError
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
     if (loading || gLoading || forgetSending) {
         return <Loading />
     }
 
-    if (user) {
-        console.log(user, gUser);
+    if (user || gUser) {
+        navigate(from, { replace: true });
     }
     if (error || gError || forgetError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
@@ -90,17 +95,15 @@ const Login = () => {
                                     <p class="text-center font-semibold mx-4 mb-0">OR</p>
                                 </div>
                             </form>
-                            <a
+                            <button
                                 onClick={() => signInWithGoogle()}
+                                alt=""
                                 class="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
                                 style={{ backgroundColor: "#4285F4" }}
-                                href="#!"
-                                role="button"
-                                data-mdb-ripple="true"
-                                data-mdb-ripple-color="light">
+                            >
                                 <FcGoogle size={25} className="mr-4" />
                                 Continue with Google
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import ProductDetailModal from './ProductDetailModal';
 
@@ -23,7 +24,19 @@ const Purchase = () => {
     }, [id]);
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        // console.log(data)
+        const defaultMinumOrder = parseInt(product.min_order_quantity);
+        const availableQuantity = parseInt(product.available_quantity);
+        const minumunOrder = parseInt(data.min_order_quantity);
+        if (defaultMinumOrder > minumunOrder) {
+            return toast.error(`Order can't less than ${defaultMinumOrder}`);
+        }
+        if (minumunOrder >= availableQuantity) {
+            return toast.error(`Your order must be less than ${availableQuantity}`)
+        }
+        console.log(minumunOrder, defaultMinumOrder);
+    };
     return (
         <>
             <div className='pt-20 mb-4 flex justify-end px-28'>
@@ -45,14 +58,14 @@ const Purchase = () => {
                 </div>
                 <div className='border-2 container sm:p-3 sm:w-full lg:w-3/4 mx-auto bg-slate-300 rounded-xl'>
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-white rounded p-5">
-                        <label className="block mb-2 text-sm font-bold text-gray-700">Your Email</label>
-                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none bg-gray-200 focus:outline-none focus:shadow-outline' value={email} readOnly {...register("user_email")} />
-                        <label className="block mb-2 text-sm font-bold text-gray-700">Your Name</label>
-                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Product Name' value={userName} readOnly {...register("user_name", { required: true })} />
-                        <label className="block mb-2 text-sm font-bold  text-gray-700">Price</label>
-                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Price' type="number" {...register("price", { required: true })} />
+                        <label className="block mb-2 text-sm font-bold text-gray-700">Name</label>
+                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' defaultValue={user?.displayName || ""} placeholder="Name"  {...register("quantity", { required: true })} />
+                        <label className="block mb-2 text-sm font-bold  text-gray-700">Address</label>
+                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Address' type="text" {...register("address", { required: true })} />
+                        <label className="block mb-2 text-sm font-bold text-gray-700">Min order quantity</label>
+                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' defaultValue={product?.min_order_quantity || ""} placeholder='Minumum order Quantity' type="number" {...register("min_order_quantity", { required: true })} />
                         <label className="block mb-2 text-sm font-bold text-gray-700">Quntity</label>
-                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Quntity' type="number" {...register("quantity", { required: true })} />
+                        {/* <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Quntity' type="number" {...register("quantity", { required: true })} /> */}
                         <div className='flex justify-end'>
                             <button className='btn btn-primary mt-2' type='submit'>
                                 Purchase

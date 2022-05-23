@@ -36,7 +36,7 @@ const Login = () => {
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        const confirnPassword = event.target.confirm-password.value;
+        const confirnPassword = event.target.confirm - password.value;
 
         // if (password !== confirnPassword) {
         //     return passError = <p>Password don't match</p>
@@ -110,12 +110,12 @@ const Login = () => {
                         </form>
                         <a
                             class="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
-                            style={{ backgroundColor: "#4285F4" }}
                             onClick={() => signInWithGoogle()}
                             href="#!"
                             role="button"
                             data-mdb-ripple="true"
                             data-mdb-ripple-color="light">
+                            style={{ backgroundColor: "#4285F4" }}
                             <FcGoogle size={25} className="mr-4" />
                             Continue with Google
                         </a>

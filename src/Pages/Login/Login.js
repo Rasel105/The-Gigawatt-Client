@@ -3,6 +3,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWith
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -94,13 +95,9 @@ const Login = () => {
                             role="button"
                             data-mdb-ripple="true"
                             data-mdb-ripple-color="light">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 320 512"
-                                class="w-3.5 h-3.5 mr-2">
-                                <path
-                                    fill="currentColor"
-                                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" /></svg>Continue with Google
+                            style={{ backgroundColor: "#4285F4" }}
+                            <FcGoogle size={25} className="mr-4" />
+                            Continue with Google
                         </a>
                     </div>
                 </div>

@@ -111,11 +111,11 @@ const Login = () => {
                         <a
                             class="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
                             onClick={() => signInWithGoogle()}
+                            style={{ backgroundColor: "#4285F4" }}
                             href="#!"
                             role="button"
                             data-mdb-ripple="true"
                             data-mdb-ripple-color="light">
-                            style={{ backgroundColor: "#4285F4" }}
                             <FcGoogle size={25} className="mr-4" />
                             Continue with Google
                         </a>

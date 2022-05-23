@@ -26,13 +26,17 @@ const Login = () => {
     if (error || gError || updateError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message} || {updateError?.message}</small></p>
     }
-
+    let passError;
     const handleSignup = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.name.value;
         const confirnPassword = event.target.name.value;
+
+        if (password !== confirnPassword) {
+            return passError = <p>Password don't match</p>
+        }
         await createUserWithEmailAndPassword(email, password);
     }
 
@@ -83,7 +87,8 @@ const Login = () => {
                             <div class="form-group form-check mb-4">
                                 <Link to="/login">Don't have an account? Login</Link>
                             </div>
-
+                            {passError}
+                            {signInError}
                             <button
                                 type="submit"
                                 class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"

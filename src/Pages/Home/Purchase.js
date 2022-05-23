@@ -28,12 +28,20 @@ const Purchase = () => {
         // console.log(data)
         const defaultMinimumOrder = parseInt(product.min_order_quantity);
         const availableQuantity = parseInt(product.available_quantity);
-        const minumunOrder = parseInt(data.order_quantity);
+        const minimumOrder = parseInt(data.order_quantity);
 
-        if (defaultMinimumOrder > minumunOrder) {
+        const purchaseData = {
+            userName: userName,
+            email: email,
+            minimumOrder: minimumOrder,
+            address: data.address,
+            phone: data.phone
+        }
+
+        if (defaultMinimumOrder > minimumOrder) {
             return toast.error(`Order can't less than ${defaultMinimumOrder}`);
         }
-        else if (minumunOrder >= availableQuantity) {
+        else if (minimumOrder >= availableQuantity) {
             return toast.error(`Your order must be less than ${availableQuantity}`)
         }
         else {
@@ -42,7 +50,7 @@ const Purchase = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(purchaseData),
             })
                 .then(res => res.json())
                 .then(data => {
@@ -76,10 +84,11 @@ const Purchase = () => {
                         <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' defaultValue={user?.displayName || ""} placeholder="Name"  {...register("quantity", { required: true })} />
                         <label className="block mb-2 text-sm font-bold  text-gray-700">Address</label>
                         <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Address' type="text" {...register("address", { required: true })} />
+                        <label className="block mb-2 text-sm font-bold text-gray-700">Phone</label>
+                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Phone' type="number" {...register("phone", { required: true })} />
                         <label className="block mb-2 text-sm font-bold text-gray-700">Min order quantity</label>
                         <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' defaultValue={product?.min_order_quantity || ""} placeholder='Minumum order Quantity' type="number" {...register("order_quantity", { required: true })} />
-                        <label className="block mb-2 text-sm font-bold text-gray-700">Quntity</label>
-                        {/* <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Quntity' type="number" {...register("quantity", { required: true })} /> */}
+
                         <div className='flex justify-end'>
                             <button className='btn btn-primary mt-2' type='submit'>
                                 Purchase

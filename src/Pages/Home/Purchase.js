@@ -1,13 +1,63 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
+import { Link, useParams } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Purchase = () => {
-    const { id } = useParams();
-    console.log(id)
-    return (
-        <div>
+    const [user] = useAuthState(auth);
+    const [product, setProducts] = useState({});
 
-        </div>
+    const email = user?.email;
+    const userName = user?.displayName;
+    const { id } = useParams();
+
+    useEffect(() => {
+        const url = `http://localhost:5000/product/${id}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            })
+    }, [id]);
+
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
+    return (
+        <>
+            <div className='grid lg:grid-cols-2 sm:grid-cols-1 w-10/12 mx-auto gap-5 pt-24'>
+                <div class="card card-compact w-96 bg-base-100 shadow-xl">
+                    <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">{product.product_name}</h2>
+                        <p>{product.description}</p>
+                        <h2 className='text-xl'>Mininum order Quantity: {product.min_order_quantity}</h2>
+                        <h2 className='text-xl'>Available Quantity: {product.available_quantity}</h2>
+                        <h2 className='text-xl'>Price: {product.price}</h2>
+                        <div class="card-actions justify-end">
+                            {/* <Link to={`/purchase/${_id}`} class="btn btn-primary">Buy Now</Link> */}
+                        </div>
+                    </div>
+                </div>
+                <div className='border-2 container sm:p-3 sm:w-full lg:w-3/4 mx-auto bg-slate-300 rounded-xl'>
+                    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-white rounded p-5">
+                        <label className="block mb-2 text-sm font-bold text-gray-700">Your Email</label>
+                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none bg-gray-200 focus:outline-none focus:shadow-outline' value={email} readOnly {...register("user_email")} />
+                        <label className="block mb-2 text-sm font-bold text-gray-700">Your Name</label>
+                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Product Name' value={userName} readOnly {...register("user_name", { required: true })} />
+                        <label className="block mb-2 text-sm font-bold  text-gray-700">Price</label>
+                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Price' type="number" {...register("price", { required: true })} />
+                        <label className="block mb-2 text-sm font-bold text-gray-700">Quntity</label>
+                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Quntity' type="number" {...register("quantity", { required: true })} />
+                        <div className='flex justify-end'>
+                            <button className='bg-sky-500/100 hover:bg-blue-800 py-2 px-4 mt-2 rounded-lg text-xl mx-2 text-white' type='submit'>
+                                Add
+                            </button>
+                        </div>
+                    </form>
+                </div >
+            </div>
+        </>
     );
 };
 

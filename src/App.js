@@ -12,6 +12,7 @@ import Signup from './Pages/Login/Signup';
 import Navbar from './Pages/Shared/Navbar';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NotFound from './Pages/Shared/NotFound';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         </Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <ToastContainer />
     </div>

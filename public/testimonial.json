@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Maria William",
+        "img": "https://i.ibb.co/PMdS8VP/a.png",
+        "description": "Screwdrivers are one of the most traditional of tools but are still indispensable for most electricians who frequently require access to electrical containers sealed with screws."
+    },
+    {
+        "id": 2,
+        "name": "Jenny Clare",
+        "img": "https://i.ibb.co/6ZTCXgV/b.jpg",
+        "description": "Their versatility means they can be used to accomplish a multitude of tasks requiring ‘torque’, working in a much more robust manner than would be possible with the use of bare hands alone."
+    },
+    {
+        "id": 3,
+        "name": "Sarah Mark",
+        "img": "https://i.ibb.co/wWJP2Mq/c.jpg",
+        "description": "It is also made from different materials, including PVC, vinyl, copper foil and glass cloth. Different varieties feature varying colours, widths, thicknesses, temperature tolerance, adhesion strength and insulating capabilities."
+    }
+]

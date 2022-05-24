@@ -1,10 +1,23 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const AddAReview = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
-        console.log(data)
+    const onSubmit = (data, e) => {
+        fetch('http://localhost:5000/review', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success(`Review added successfully`);
+                e.target.reset();
+                console.log('Success:', data);
+            })
     }
     return (
         <div>

@@ -24,7 +24,7 @@ const Purchase = () => {
     }, [id]);
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
+    const onSubmit = (data, e) => {
         const defaultMinimumOrder = parseInt(product.min_order_quantity);
         const availableQuantity = parseInt(product.available_quantity);
         const price = parseInt(product.price);
@@ -58,6 +58,7 @@ const Purchase = () => {
                 .then(res => res.json())
                 .then(data => {
                     toast.success(`Your order successfull`);
+                    e.target.reset();
                     console.log('Success:', data);
                 })
         }

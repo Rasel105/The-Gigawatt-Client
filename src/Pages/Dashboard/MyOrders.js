@@ -9,8 +9,11 @@ import MyOrderDeleteModal from './MyOrderDeleteModal';
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
+    const [deletingItem, setDeletingItem] = useState(null)
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
+
+    // console.log(deletingItem);
 
     useEffect(() => {
         if (user) {
@@ -33,7 +36,7 @@ const MyOrders = () => {
                     console.log(data)
                 })
         }
-    }, [user, navigate])
+    }, [user, navigate, deletingItem])
 
     if (loading) {
         return <Loading />
@@ -50,7 +53,7 @@ const MyOrders = () => {
                             <th>Name</th>
                             <th>Email</th>
                             {/* <th>Address</th> */}
-                            <th>Phone</th>
+                            <th>Item</th>
                             <th>Order Items</th>
                             <th>Payment</th>
                             <th>Action</th>
@@ -60,12 +63,18 @@ const MyOrders = () => {
                         {
                             orders.map(order => <MyOrder
                                 order={order}
+                                setDeletingItem={setDeletingItem}
                             />)
                         }
                     </tbody>
                 </table>
             </div>
-            
+            {
+                deletingItem && <MyOrderDeleteModal
+                    deletinItem={deletingItem}
+                    setDeletingItem={setDeletingItem}                   
+                />
+            }
         </div>
     );
 };

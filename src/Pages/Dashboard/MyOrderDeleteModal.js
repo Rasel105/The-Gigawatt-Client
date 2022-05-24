@@ -1,15 +1,27 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
-const MyOrderDeleteModal = ({ order }) => {
+const MyOrderDeleteModal = ({ deletinItem, setDeletingItem }) => {
+    const { email } = deletinItem;
+    const handleDelete = () => {
 
-    const handleDelete = (id) => {
-        // fetch('https://example.com/delete-item/' + id, {
-        //     method: 'DELETE',
-        // })
-        //     .then(res => res.json())
-        //     .then(res => console.log(res))
-        console.log(id)
+        const url = `http://localhost:5000/myorder/${email}`;
+        fetch(url, {
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount) {
+                    toast.success("Item Deleted");
+                    setDeletingItem(null);
+                }
+            })
     }
+    console.log(deletinItem);
 
     return (
         <div>
@@ -17,10 +29,9 @@ const MyOrderDeleteModal = ({ order }) => {
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
                     <label htmlFor="all-info" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="font-bold text-lg">{order.item}</h3>
                     <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
                     <div class="modal-action">
-                        <button onClick={() => handleDelete(order._id)} class="btn btn-xs btn-error text-white">Delete</button>
+                        <button onClick={() => handleDelete()} class="btn btn-xs btn-error text-white">Delete</button>
                         <label for="all-info" class="btn btn-xs text-white">Cancel</label>
                     </div>
                 </div>

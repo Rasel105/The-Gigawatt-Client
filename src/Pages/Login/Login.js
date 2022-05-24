@@ -17,7 +17,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, forgetSending, forgetError] = useSendPasswordResetEmail(auth);
-    const [token] = useToken();
+    const [token] = useToken(gUser || user);
     let signInError
 
     const navigate = useNavigate();

@@ -4,10 +4,12 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import MyOrder from './MyOrder';
+import MyOrderDeleteModal from './MyOrderDeleteModal';
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -56,20 +58,14 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map(order => <tr>
-                                <th>1</th>
-                                <td>{order.userName}</td>
-                                <td>{order.email}</td>
-                                {/* <td>{order.address}</td> */}
-                                <td>{order.phone}</td>
-                                <td>{order.minimumOrder}/pcs</td>
-                                <td><button className='btn btn-success text-white'>Pay</button></td>
-                                <td><button className='btn btn-error text-white'>Delete</button></td>
-                            </tr>)
+                            orders.map(order => <MyOrder
+                                order={order}
+                            />)
                         }
                     </tbody>
                 </table>
             </div>
+            
         </div>
     );
 };

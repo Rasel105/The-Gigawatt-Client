@@ -61,8 +61,9 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map(order => <MyOrder
+                            orders.map((order, index) => <MyOrder
                                 order={order}
+                                index={index}
                                 setDeletingItem={setDeletingItem}
                             />)
                         }
@@ -72,7 +73,7 @@ const MyOrders = () => {
             {
                 deletingItem && <MyOrderDeleteModal
                     deletinItem={deletingItem}
-                    setDeletingItem={setDeletingItem}                   
+                    setDeletingItem={setDeletingItem}
                 />
             }
         </div>

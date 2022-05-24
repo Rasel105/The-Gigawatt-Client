@@ -25,16 +25,18 @@ const Purchase = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        // console.log(data)
         const defaultMinimumOrder = parseInt(product.min_order_quantity);
         const availableQuantity = parseInt(product.available_quantity);
+        const price = parseInt(product.price);
         const minimumOrder = parseInt(data.order_quantity);
+        const totalPrice = price * minimumOrder;
 
         const purchaseData = {
             userName: userName,
             email: email,
             item: product.product_name,
             minimumOrder: minimumOrder,
+            totalPrice: totalPrice,
             address: data.address,
             phone: data.phone
         }
@@ -55,6 +57,7 @@ const Purchase = () => {
             })
                 .then(res => res.json())
                 .then(data => {
+                    toast.success(`Your order successfull`);
                     console.log('Success:', data);
                 })
         }
@@ -67,13 +70,13 @@ const Purchase = () => {
             </div>
             <div className='grid lg:grid-cols-2 sm:grid-cols-1 w-10/12 mx-auto gap-5 '>
                 <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                    <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+                    <figure><img className='h-48 mt-5' src={product.img} alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">{product.product_name}</h2>
                         <p>{product.description}</p>
-                        <h2 className='text-xl'>Mininum order Quantity: {product.min_order_quantity}</h2>
-                        <h2 className='text-xl'>Available Quantity: {product.available_quantity}</h2>
-                        <h2 className='text-xl'>Price: {product.price}</h2>
+                        <h2 className='text-xl'>Mininum order Quantity: {product.min_order_quantity}/pcs</h2>
+                        <h2 className='text-xl'>Available Quantity: {product.available_quantity}/pcs</h2>
+                        <h2 className='text-xl'>Price: ${product.price}</h2>
                         <div class="card-actions justify-end">
                             {/* <Link to={`/purchase/${_id}`} class="btn btn-primary">Buy Now</Link> */}
                         </div>

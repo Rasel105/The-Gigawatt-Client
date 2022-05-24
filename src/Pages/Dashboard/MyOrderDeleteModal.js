@@ -29,7 +29,7 @@ const MyOrderDeleteModal = ({ deletinItem, setDeletingItem }) => {
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
                     <label htmlFor="all-info" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                    <p class="py-4 text-xl">Are you sure to delete this item?</p>
                     <div class="modal-action">
                         <button onClick={() => handleDelete()} class="btn btn-xs btn-error text-white">Delete</button>
                         <label for="all-info" class="btn btn-xs text-white">Cancel</label>

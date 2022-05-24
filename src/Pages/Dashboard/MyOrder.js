@@ -1,10 +1,10 @@
 import React from 'react';
 
-const MyOrder = ({ order, setDeletingItem }) => {
+const MyOrder = ({ order, setDeletingItem, index }) => {
     return (
         <>
             <tr>
-                <th>1</th>
+                <th>{index + 1}</th>
                 <td>{order.userName}</td>
                 <td>{order.email}</td>
                 {/* <td>{order.address}</td> */}

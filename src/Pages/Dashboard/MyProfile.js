@@ -12,7 +12,7 @@ const MyProfile = () => {
     if (isLoading) {
         return <Loading />
     }
-    console.log(users)
+    console.log(users);
     return (
         <>
             <h2 className='pt-25 text-2xl text-center'>My profile</h2>

@@ -5,12 +5,14 @@ import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const AddAProduct = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [user] = useAuthState(auth);
     const email = user?.email;
 
+
+
     const onSubmit = (data, e) => {
-        const image = data.image[0];
+        const image = data.img[0];
         const formData = new FormData();
         console.log(formData);
         formData.append('image', image);
@@ -34,27 +36,27 @@ const AddAProduct = () => {
                         available_quantity: data.available_quantity,
                         description: data.description
                     }
-
-
                     fetch('http://localhost:5000/product', {
                         method: "POST",
                         headers: {
-                            'content-type': "application/json",
-                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                            "content-type": "application/json",
+                            'authorization': `Bearer ${localStorage.getItem("accessToken")}`
                         },
                         body: JSON.stringify(product)
                     })
                         .then(res => res.json())
-                        .then(inserted => {
-                            if (inserted.insertedId) {
-                                toast.success("Product added Successfully");
-                                e.target.reset();
+                        .then(data => {
+                            if (data.insertedId) {
+                                toast.success("Product added successfully");
+                                reset();
                             } else {
-                                toast.error("Failed to add Product")
+                                toast.error("Failed to add product");
                             }
+                            console.log("product", data);
                         })
                 }
             })
+
     }
 
     return (
@@ -63,7 +65,7 @@ const AddAProduct = () => {
             <div className='border-2 sm:p-2 sm:w-full lg:w-2/4 mt-5 mx-auto bg-slate-200 rounded-xl'>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-white rounded p-5">
                     <label className="block mb-2 text-sm font-bold text-gray-700">Email</label>
-                    <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' disabled defaultValue={email} placeholder="Email" type="email"  {...register("email", { required: true })} />
+                    <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' defaultValue={email} placeholder="Email" type="email"  {...register("email", { required: true })} />
                     <label className="block mb-2 text-sm font-bold text-gray-700">Product Name</label>
                     <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder="Product Name" type="text"  {...register("product_name", { required: true })} />
                     <label className="block mb-2 text-sm font-bold text-gray-700">Price</label>

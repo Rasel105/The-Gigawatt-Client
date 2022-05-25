@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
-const MyOrderDeleteModal = ({ deletinItem, setDeletingItem }) => {
-    const { email } = deletinItem;
+const ManageProductDeleteModal = ({ deletinItem, setDeletingItem }) => {
+    // console.log(deletinItem)
     const handleDelete = () => {
-
-        const url = `http://localhost:5000/myorder/${email}`;
+        const url = `http://localhost:5000/myorder/`;
         fetch(url, {
             method: 'DELETE',
             headers: {
@@ -21,8 +20,6 @@ const MyOrderDeleteModal = ({ deletinItem, setDeletingItem }) => {
                 }
             })
     }
-    console.log(deletinItem);
-
     return (
         <div>
             <input type="checkbox" id="all-info" className="modal-toggle" />
@@ -40,4 +37,4 @@ const MyOrderDeleteModal = ({ deletinItem, setDeletingItem }) => {
     );
 };
 
-export default MyOrderDeleteModal;
+export default ManageProductDeleteModal;

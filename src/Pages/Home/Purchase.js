@@ -30,6 +30,8 @@ const Purchase = () => {
         const price = parseInt(product.price);
         const minimumOrder = parseInt(data.order_quantity);
         const totalPrice = price * minimumOrder;
+        
+        const restItem = availableQuantity - minimumOrder;
 
         const purchaseData = {
             userName: userName,
@@ -37,6 +39,7 @@ const Purchase = () => {
             item: product.product_name,
             minimumOrder: minimumOrder,
             totalPrice: totalPrice,
+            restItem,
             address: data.address,
             phone: data.phone
         }
@@ -86,13 +89,15 @@ const Purchase = () => {
                 <div className='border-2 container sm:p-3 sm:w-full lg:w-3/4 mx-auto bg-slate-300 rounded-xl'>
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-white rounded p-5">
                         <label className="block mb-2 text-sm font-bold text-gray-700">Name</label>
-                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' defaultValue={user?.displayName || ""} placeholder="Name"  {...register("quantity", { required: true })} />
+                        <input className='mb-1 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' defaultValue={user?.displayName || ""} placeholder="Name"  {...register("quantity", { required: true })} />
+                        <label className="block mb-2 text-sm font-bold text-gray-700">Email</label>
+                        <input className='mb-1 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' defaultValue={user?.email || ""} placeholder="Name"  {...register("email", { required: true })} />
                         <label className="block mb-2 text-sm font-bold  text-gray-700">Address</label>
-                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Address' type="text" {...register("address", { required: true })} />
+                        <input className='mb-1 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Address' type="text" {...register("address", { required: true })} />
                         <label className="block mb-2 text-sm font-bold text-gray-700">Phone</label>
-                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Phone' type="number" {...register("phone", { required: true })} />
+                        <input className='mb-1 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Phone' type="number" {...register("phone", { required: true })} />
                         <label className="block mb-2 text-sm font-bold text-gray-700">Min order quantity</label>
-                        <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' defaultValue={product?.min_order_quantity || ""} placeholder='Minumum order Quantity' type="number" {...register("order_quantity", { required: true })} />
+                        <input className=' py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' defaultValue={product?.min_order_quantity || ""} placeholder='Minumum order Quantity' type="number" {...register("order_quantity", { required: true })} />
 
                         <div className='flex justify-end'>
                             <button className='btn btn-primary mt-2' type='submit'>

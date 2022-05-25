@@ -31,7 +31,16 @@ const Reviews = () => {
         }
     }, [user, navigate])
     return (
-        <div>{reviews.length}</div>
+        <>
+            <h2 className=' text-3xl text-center my-10'><span className='text-primary'>Review</span> {reviews.length}</h2>
+            <div>
+                {
+                    reviews.map(review => <div>
+                        <h2>{review.ratings}</h2>
+                    </div>)
+                }
+            </div>
+        </>
     );
 };
 

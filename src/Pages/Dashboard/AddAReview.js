@@ -12,13 +12,18 @@ const AddAReview = () => {
     const onSubmit = (data, e) => {
         const ratings = data.ratings;
         const review = data.review;
+        if (review.length < 25) {
+            return toast.error("Review length must be 25 caracters");
+        }
+        if (ratings > 5 || 0 > ratings) {
+            return toast.error("Rating can't be more than 5 or less than 0");
+        }
 
         const reviewData = {
             ratings: ratings,
             review: review,
             email: email,
         }
-
 
         fetch('http://localhost:5000/review', {
             method: 'POST',

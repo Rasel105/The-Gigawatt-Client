@@ -18,6 +18,7 @@ import Payment from './Pages/Dashboard/Payment';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import AddAProduct from './Pages/Dashboard/AddAProduct';
+import Portfolio from './Pages/Portfolio.js/Portfolio';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path='payment/:id' element={<Payment />}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs />}></Route>
+        <Route path='/portfolio' element={<Portfolio />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='*' element={<NotFound />}></Route>

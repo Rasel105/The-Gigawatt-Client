@@ -16,37 +16,40 @@ const ManageProducts = () => {
     console.log(products)
 
     return (
-        <div class="overflow-x-auto mt-2">
-            <table class="table w-full">
-                <thead>
-                    <tr>
-                        <th>S.L</th>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Min Order Quantity</th>
-                        <th>Available Quantity</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        products.map((product) => <ManageProductRow
-                            key={product._id}
-                            refetch={refetch}
-                            setDeletingItem={setDeletingItem}
-                            product={product} />)
-                    }
-                </tbody>
-            </table>
-            {
-                deletingItem && <ManageProductDeleteModal
-                    deletinItem={deletingItem}
-                    refetch={refetch}
-                    setDeletingItem={setDeletingItem}
-                />
-            }
-        </div>
+        <>
+            <h2 className='text-center text-2xl'>Manage Products</h2>
+            <div class="overflow-x-auto mt-2">
+                <table class="table w-full">
+                    <thead>
+                        <tr>
+                            <th>S.L</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Min Order Quantity</th>
+                            <th>Available Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            products.map((product) => <ManageProductRow
+                                key={product._id}
+                                refetch={refetch}
+                                setDeletingItem={setDeletingItem}
+                                product={product} />)
+                        }
+                    </tbody>
+                </table>
+                {
+                    deletingItem && <ManageProductDeleteModal
+                        deletinItem={deletingItem}
+                        refetch={refetch}
+                        setDeletingItem={setDeletingItem}
+                    />
+                }
+            </div>
+        </>
     );
 };
 

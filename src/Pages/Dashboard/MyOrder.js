@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyOrder = ({ order, setDeletingItem, index }) => {
-    const { userName, email, item, minimumOrder, totalPrice } = order;
+    const { _id, userName, email, item, minimumOrder, totalPrice } = order;
     console.log(order);
     return (
         <>
@@ -12,7 +13,7 @@ const MyOrder = ({ order, setDeletingItem, index }) => {
                 <td>{item}</td>
                 <td>{totalPrice}</td>
                 <td>{minimumOrder}/pcs</td>
-                <td><button className='btn btn-success text-white'>Pay</button></td>
+                <td><Link to={`/dashboard/payment/${_id}`} className='btn btn-success text-white'>Pay</Link></td>
                 <td><label onClick={() => setDeletingItem(order)} for="all-info" class="btn btn-primary modal-button">Delete</label></td>
             </tr>
         </>

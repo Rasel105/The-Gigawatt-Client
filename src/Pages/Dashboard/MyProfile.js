@@ -1,46 +1,71 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useQuery } from 'react-query';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
-import Loading from '../Shared/Loading';
 
 const MyProfile = () => {
+    const { register, handleSubmit } = useForm();
     const [user] = useAuthState(auth);
-    const { data: users, isLoading } = useQuery('users', () => fetch(`http://localhost:5000/users?email=${user.email}`)
-        .then(res => res.json()));
+    const name = user?.displayName;
+    const email = user?.email;
 
-    if (isLoading) {
-        return <Loading />
+    const onSubmit = (data, e) => {
+        fetch(`http://localhost:5000/user/${email}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success(`Profile successfully`);
+                e.target.reset();
+                console.log('Success:', data);
+            })
     }
-    console.log(users);
+
     return (
         <>
-            <h2 className='pt-25 text-2xl text-center'>My profile</h2>
-            <h2 className='text-2xl text-center'>User: {users.length}</h2>
-            <div className='grid'>
+            <h1 className='text-3xl mb-2 text-center'>My Profile</h1>
+            <div className='grid lg:grid-cols-2 sm:grid-cols-1 sm:p-6'>
                 <div class="overflow-x-auto">
                     <table class="table w-full">
                         <thead>
                             <tr>
-                                <th></th>
                                 <th>Name</th>
-                                <th>Job</th>
-                                <th>Favorite Color</th>
+                                <th>Email</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                users.map(user => <tr>
-                                    <th>1</th>
-                                    <td>{user.email}</td>
-                                    <td>Quality Control Specialist</td>
-                                    <td>Blue</td>
-                                </tr>)
-                            }
+                            <tr>
+                                <td>{name}</td>
+                                <td>{email}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
-
+                <div>
+                    <h2 className='text-center text-xl mb-2'>Update Profile</h2>
+                    <div className='border-2 sm:p-2 sm:w-full lg:w-10/12 mx-auto bg-slate-200 rounded-xl'>
+                        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-white rounded p-5">
+                            <label className="block mb-2 text-sm font-bold text-gray-700">Education</label>
+                            <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder="Education" type="text"  {...register("education", { required: true })} />
+                            <label className="block mb-2 text-sm font-bold text-gray-700">City/District</label>
+                            <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder="City / District" type="text"  {...register("city", { required: true })} />
+                            <label className="block mb-2 text-sm font-bold text-gray-700">Phone</label>
+                            <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder="Phone" type="number"  {...register("phone", { required: true })} />
+                            <label className="block mb-2 text-sm font-bold text-gray-700">City/District</label>
+                            <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder="LinkedIn profile link" type="text"  {...register("linkedin", { required: true })} />
+                            <div className='flex justify-end'>
+                                <button className='btn btn-primary mt-2' type='submit'>
+                                    Update
+                                </button>
+                            </div>
+                        </form>
+                    </div >
+                </div>
             </div>
         </>
     );

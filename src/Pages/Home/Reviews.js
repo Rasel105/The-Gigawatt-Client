@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-
+import ReviewCard from '../Home/ReviewCard'
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
     const [user] = useAuthState(auth);
@@ -35,9 +35,10 @@ const Reviews = () => {
             <h2 className=' text-3xl text-center my-10'><span className='text-primary'>Review</span> {reviews.length}</h2>
             <div>
                 {
-                    reviews.map(review => <div key={review._id}>
-                        <h2>{review.ratings}</h2>
-                    </div>)
+                    reviews.map(review => <ReviewCard 
+                        key={review._id}
+                        review={review}
+                    />)
                 }
             </div>
         </>

@@ -42,6 +42,7 @@ const ManageProducts = () => {
             {
                 deletingItem && <ManageProductDeleteModal
                     deletinItem={deletingItem}
+                    refetch={refetch}
                     setDeletingItem={setDeletingItem}
                 />
             }

@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 
-const ManageProductDeleteModal = ({ deletinItem, setDeletingItem }) => {
-    // console.log(deletinItem)
+const ManageProductDeleteModal = ({ deletinItem, setDeletingItem, refetch }) => {
+
+    const { _id } = deletinItem;
+
     const handleDelete = () => {
-        const url = `http://localhost:5000/myorder/`;
+        const url = `http://localhost:5000/product/${_id}`;
         fetch(url, {
             method: 'DELETE',
             headers: {
@@ -16,6 +18,7 @@ const ManageProductDeleteModal = ({ deletinItem, setDeletingItem }) => {
                 console.log(data);
                 if (data.deletedCount) {
                     toast.success("Item Deleted");
+                    refetch()
                     setDeletingItem(null);
                 }
             })

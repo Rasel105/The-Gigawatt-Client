@@ -25,6 +25,17 @@ const Blogs = () => {
 
                 </p>
             </div>
+            <div>
+                <h2>How does prototypical inheritance work?</h2>
+                <p>Ans: Javascript is protype based, Object Oriented programming language. Protypical inheritance meaning that objets and methods can be shared extended and copied.
+                    Sharing object makes for easy inheritance of struture.
+                    Javascript is the most common of the protype capable language and ists capabilities are relatively unique. when used approtimately, Protypical inheritance is powerful toot.
+                    prototypical inheritance refers to the ability to access object properties from another object. We use a JavaScript prototype to add new properties and methods to an existing object constructor. We can then essentially tell our JS code to inherit properties from a prototype. Prototypical inheritance allows us to reuse the properties or methods from one JavaScript object to another through a reference pointer function.                    
+                </p>
+            </div>
+            <div>
+                
+            </div>
         </div>
     );
 };

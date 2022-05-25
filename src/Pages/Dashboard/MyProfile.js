@@ -30,8 +30,8 @@ const MyProfile = () => {
         <>
             <h1 className='text-3xl mb-2 text-center'>My Profile</h1>
             <div className='grid lg:grid-cols-2 sm:grid-cols-1 sm:p-6'>
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
                         <thead>
                             <tr>
                                 <th>Name</th>

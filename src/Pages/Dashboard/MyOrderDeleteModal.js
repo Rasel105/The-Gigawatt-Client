@@ -25,14 +25,14 @@ const MyOrderDeleteModal = ({ deletinItem, setDeletingItem }) => {
 
     return (
         <div>
-            <input type="checkbox" id="all-info" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <label htmlFor="all-info" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <p class="py-4 text-xl">Are you sure to delete this item?</p>
-                    <div class="modal-action">
-                        <button onClick={() => handleDelete()} class="btn btn-xs btn-error text-white">Delete</button>
-                        <label for="all-info" class="btn btn-xs text-white">Cancel</label>
+            <input type="checkbox" id="all-info" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <label htmlhtmlFor="all-info" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <p className="py-4 text-xl">Are you sure to delete this item?</p>
+                    <div className="modal-action">
+                        <button onClick={() => handleDelete()} className="btn btn-xs btn-error text-white">Delete</button>
+                        <label htmlFor="all-info" className="btn btn-xs text-white">Cancel</label>
                     </div>
                 </div>
             </div>

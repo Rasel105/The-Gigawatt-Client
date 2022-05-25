@@ -15,15 +15,15 @@ const MakeAdmin = () => {
     if (isLoading) {
         return <Loading />
     }
-    console.log(users);
+    // console.log(users);
 
     return (
         <>
             <h2 className='pt-25 text-2xl text-center'>Make Admin</h2>
             {/* <h2 className='text-2xl text-center'>User: {users.length}</h2> */}
             <div className='grid'>
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
                         <thead>
                             <tr>
                                 <th></th>

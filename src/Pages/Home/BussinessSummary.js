@@ -5,7 +5,7 @@ import { VscOpenPreview } from 'react-icons/vsc';
 const BussinessSummary = () => {
     return (
         <section className='w-9/12 mx-auto my-16'>
-            <h2 className='text-4xl text-center text-secondary'>This is Bussiness Summary</h2>
+            <h2 className='text-4xl text-center text-primary my-3'>Bussiness Summary</h2>
             <h2 className='text-2xl text-center mb-5'>Try to understand user expectaion</h2>
             <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-10 justify-items-center items-center'>
                 <div className='flex flex-col items-center bg-slate-200 p-7 rounded-3xl'>

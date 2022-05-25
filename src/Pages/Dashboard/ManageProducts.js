@@ -33,8 +33,9 @@ const ManageProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map((product) => <ManageProductRow
+                            products.map((product, index) => <ManageProductRow
                                 key={product._id}
+                                index={index}
                                 refetch={refetch}
                                 setDeletingItem={setDeletingItem}
                                 product={product} />)

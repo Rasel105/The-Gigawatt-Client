@@ -1,10 +1,10 @@
 import React from 'react';
 
-const ManageProductRow = ({ product, setDeletingItem }) => {
+const ManageProductRow = ({ product, setDeletingItem, index }) => {
     const { product_name, price, min_order_quantity, img, available_quantity } = product;
     return (
         <tr>
-            <th></th>
+            <th>{index + 1}</th>
             <th><div class="avatar">
                 <div class="w-20 rounded">
                     <img src={img} alt="Tailwind-CSS-Avatar-component" />

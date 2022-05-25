@@ -17,6 +17,7 @@ import Blogs from './Pages/Home/Blogs';
 import Payment from './Pages/Dashboard/Payment';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import AddAProduct from './Pages/Dashboard/AddAProduct';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path='addareview' element={<AddAReview />}></Route>
           <Route path='myprofile' element={<MyProfile />}></Route>
           <Route path='makeadmin' element={<MakeAdmin />}></Route>
+          <Route path='addproduct' element={<AddAProduct />}></Route>
           <Route path='manage-products' element={<ManageProducts />}></Route>
           <Route path='payment/:id' element={<Payment />}></Route>
         </Route>

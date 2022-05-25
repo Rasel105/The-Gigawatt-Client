@@ -20,7 +20,7 @@ const MyProfile = () => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success(`Profile successfully`);
+                toast.success(`Profile update successfully`);
                 e.target.reset();
                 console.log('Success:', data);
             })
@@ -56,7 +56,7 @@ const MyProfile = () => {
                             <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder="City / District" type="text"  {...register("city", { required: true })} />
                             <label className="block mb-2 text-sm font-bold text-gray-700">Phone</label>
                             <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder="Phone" type="number"  {...register("phone", { required: true })} />
-                            <label className="block mb-2 text-sm font-bold text-gray-700">City/District</label>
+                            <label className="block mb-2 text-sm font-bold text-gray-700">Linkedin</label>
                             <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder="LinkedIn profile link" type="text"  {...register("linkedin", { required: true })} />
                             <div className='flex justify-end'>
                                 <button className='btn btn-primary mt-2' type='submit'>

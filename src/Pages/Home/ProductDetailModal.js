@@ -10,7 +10,7 @@ const ProductDetailModal = ({ product, email, userName }) => {
                     <label htmlFor="all-info" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <div className="card bg-base-100">
                         <div className="card-body">
-                            <img className='mt-3 w-4/5' src={img} alt="" />
+                            <img className='mt-3 w-2/4' src={img} alt="" />
                             <div className='bg-slate-300 flex flex-col items-center justify-center p-2 rounded-xl shadow-lg'>
                                 <h2><span className='text-info text-xl'>Name:</span> {userName}</h2>
                                 <h2><span className='text-info text-xl'>Email:</span> {email}</h2>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MyOrder = ({ order, setDeletingItem, index }) => {
-    const { _id, userName, paid, email, item, minimumOrder, totalPrice } = order;
+    const { _id, userName, paid, email, item, minimumOrder, totalPrice, transactionId } = order;
     console.log(order);
     return (
         <>
@@ -14,8 +14,11 @@ const MyOrder = ({ order, setDeletingItem, index }) => {
                 <td>{totalPrice}</td>
                 <td>{minimumOrder}/pcs</td>
                 <td>
-                    {/* <Link to={`/dashboard/payment/${_id}`} className='btn btn-success text-white'>Pay</Link> */}
-                    {(totalPrice && !paid) && <Link to={`/dashboard/payment/${_id}`}><button className='btn btn-xs btn-success text-white'>Pay</button></Link>}
+                    {(!paid) && <Link to={`/dashboard/payment/${_id}`}><button className='btn btn-xs btn-success text-white'>Pay</button></Link>}
+                    {(paid) && <div>
+                        <p><button className='btn btn-xs btn-primary text-white'>Paid</button></p>
+                        <p>Transaction Id: <span className='text-success'>{transactionId}</span> </p>
+                    </div>}
                 </td>
                 {!paid && <td><label onClick={() => setDeletingItem(order)} htmlFor="all-info" className="btn btn-error btn-xs text-white modal-button">Delete</label></td>}
             </tr>

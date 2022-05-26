@@ -26,7 +26,7 @@ const Payment = () => {
 
 
     return (
-        <div className='pt-24'>
+        <div className=''>
             <div>
                 <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12 mx-auto">
                     <div class="card-body">

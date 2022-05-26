@@ -22,7 +22,7 @@ const ManageAllOrderRow = ({ order, index, refetch, setDeletingItem }) => {
             });
     }
     return (
-        <tr class="hover">
+        <tr className="hover">
             <Zoom left cascade>
                 <th>{index + 1}</th>
                 <td>{userName}</td>

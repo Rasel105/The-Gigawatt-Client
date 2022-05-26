@@ -7,8 +7,8 @@ const ManageProductRow = ({ product, setDeletingItem, index }) => {
         <tr>
             <Zoom left cascade>
                 <th>{index + 1}</th>
-                <th><div class="avatar">
-                    <div class="w-20 rounded">
+                <th><div className="avatar">
+                    <div className="w-20 rounded">
                         <img src={img} alt="Tailwind-CSS-Avatar-component" />
                     </div>
                 </div></th>

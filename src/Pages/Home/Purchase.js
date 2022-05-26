@@ -86,19 +86,19 @@ const Purchase = () => {
     return (
         <>
             <div className='pt-20 mb-4 flex justify-end px-28'>
-                <label for="all-info" class="btn btn-primary modal-button">See Details</label>
+                <label for="all-info" className="btn btn-primary modal-button">See Details</label>
             </div>
             <div className='grid lg:grid-cols-2 sm:grid-cols-1 w-10/12 mx-auto gap-5 '>
-                <div class="card card-compact w-96 bg-base-100 shadow-xl">
+                <div className="card card-compact w-96 bg-base-100 shadow-xl">
                     <figure><img className='h-48 mt-5' src={product.img} alt="Shoes" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">{product.product_name}</h2>
+                    <div className="card-body">
+                        <h2 className="card-title">{product.product_name}</h2>
                         <p>{product.description}</p>
                         <h2 className='text-xl'>Mininum order Quantity: {product.min_order_quantity}/pcs</h2>
                         <h2 className='text-xl'>Available Quantity: {product.available_quantity}/pcs</h2>
                         <h2 className='text-xl'>Price: ${product.price}</h2>
-                        <div class="card-actions justify-end">
-                            {/* <Link to={`/purchase/${_id}`} class="btn btn-primary">Buy Now</Link> */}
+                        <div className="card-actions justify-end">
+                            {/* <Link to={`/purchase/${_id}`} className="btn btn-primary">Buy Now</Link> */}
                         </div>
                     </div>
                 </div>

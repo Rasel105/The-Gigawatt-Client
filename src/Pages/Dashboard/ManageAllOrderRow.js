@@ -14,6 +14,7 @@ const ManageAllOrderRow = ({ order, index, refetch, setDeletingItem }) => {
                 <td>{item}</td>
                 <td>{minimumOrder}/pcs</td>
                 <td>${totalPrice}</td>
+                <td>{paid && <button className="btn btn-xs btn-accent text-white">Pending</button>  }</td>
                 <td>{paid ? <button className="btn btn-xs btn-primary text-white">Paid</button> : <button className="btn btn-xs btn-secondary text-white">Unpaid</button>}</td>
                 <td>{!paid && <label onClick={() => setDeletingItem(order)} htmlFor="all-order" className="btn btn-error btn-xs text-white modal-button">Delete</label>}</td>
             </Zoom>

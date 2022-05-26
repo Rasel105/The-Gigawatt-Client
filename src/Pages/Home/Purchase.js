@@ -9,7 +9,7 @@ import ProductDetailModal from './ProductDetailModal';
 const Purchase = () => {
     const [user] = useAuthState(auth);
     const [product, setProducts] = useState({});
-    const [btnDisable, setBtnDisabled] = useState(false);
+    const [btnDisable, setBtnDisabled] = useState("");
 
     const email = user?.email;
     const userName = user?.displayName;
@@ -46,12 +46,10 @@ const Purchase = () => {
         }
 
         if (defaultMinimumOrder > minimumOrder) {
-            setBtnDisabled(true);
-            return toast.error(`Order can't less than ${defaultMinimumOrder}`);
+            setBtnDisabled(`Order can't less than ${defaultMinimumOrder}`);
         }
         else if (minimumOrder >= availableQuantity) {
-            setBtnDisabled(true);
-            return toast.error(`Your order must be less than ${availableQuantity}`)
+            setBtnDisabled(`Your order must be less than ${availableQuantity}`)
         }
         else {
             fetch(`https://the-gigawatt.herokuapp.com/purchase`, {
@@ -118,10 +116,11 @@ const Purchase = () => {
                         <input className=' py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' defaultValue={product?.min_order_quantity || ""} placeholder='Minumum order Quantity' type="number" {...register("order_quantity", { required: true })} />
 
                         <div className='flex justify-end'>
-                            <button className='btn btn-primary mt-2' type='submit'>
+                            <button disabled={btnDisable} className='btn btn-primary mt-2' type='submit'>
                                 Purchase
                             </button>
                         </div>
+                        <p className='text-error'>{btnDisable}</p>
                     </form>
                 </div >
                 <ProductDetailModal

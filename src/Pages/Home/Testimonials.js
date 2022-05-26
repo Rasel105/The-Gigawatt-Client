@@ -11,7 +11,7 @@ const Testimonials = () => {
     }, [])
     return (
         <>
-            <h2 className='text-primary pl-16 text-xl'>Testimonials</h2>
+            <h2 className='text-primary pl-16 text-xl mt-10'>Testimonials</h2>
             <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-5 justify-items-center self-center px-14 my-20'>
                 <div className=''>
                     <h2 className='text-5xl mb-2'>Some talk of</h2>

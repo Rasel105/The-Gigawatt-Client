@@ -21,7 +21,7 @@ const Purchase = () => {
             .then(data => {
                 setProducts(data);
             })
-    }, [id]);
+    }, [id, product]);
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
@@ -32,7 +32,7 @@ const Purchase = () => {
         const totalPrice = price * minimumOrder;
 
         const restItem = availableQuantity - minimumOrder;
-        console.log(data)
+
         const purchaseData = {
             userName: userName,
             email: email,
@@ -51,18 +51,33 @@ const Purchase = () => {
             return toast.error(`Your order must be less than ${availableQuantity}`)
         }
         else {
-            fetch(`http://localhost:5000/purchase/${product._id}`, {
-                method: 'PUT',
+            fetch(`http://localhost:5000/purchase`, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(purchaseData),
             })
                 .then(res => res.json())
-                .then(data => {
+                .then(result => {
                     toast.success(`Your order successfull`);
                     e.target.reset();
-                    console.log('Success:', data);
+                    console.log(result);
+                    if (result.insertedId) {
+                        const available_quantity = availableQuantity - minimumOrder;
+                        console.log(restItem)
+                        fetch(`http://localhost:5000/purchase-update/${id}`, {
+                            method: 'PATCH',
+                            body: JSON.stringify({ available_quantity }),
+                            headers: {
+                                'Content-type': 'application/json',
+                            },
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data)
+                            });
+                    }
                 })
         }
 

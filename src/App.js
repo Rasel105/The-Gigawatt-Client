@@ -21,6 +21,7 @@ import AddAProduct from './Pages/Dashboard/AddAProduct';
 import Portfolio from './Pages/Portfolio.js/Portfolio';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import Reviews from './Pages/Home/Reviews';
+import MyprofileUpdate from './Pages/Dashboard/MyprofileUpdate';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/addareview' element={<Reviews />}></Route>
+        <Route path='/profileUpdate' element={<MyprofileUpdate />}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <ToastContainer />

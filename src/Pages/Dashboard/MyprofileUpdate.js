@@ -1,10 +1,12 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const MyprofileUpdate = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const [user] = useAuthState(auth);
     const email = user?.email;
@@ -21,11 +23,12 @@ const MyprofileUpdate = () => {
             .then(data => {
                 toast.success(`Profile update successfully`);
                 e.target.reset();
+                navigate('/dashboard/myprofile')
                 console.log('Success:', data);
             })
     }
     return (
-        <div>
+        <div className='pt-16'>
             <h2 className='text-center text-xl mb-2'>Update Profile</h2>
             <div className='border-2 sm:p-2 sm:w-full lg:w-2/5 mx-auto bg-slate-200 rounded-xl'>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-white rounded p-5">

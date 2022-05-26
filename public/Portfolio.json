@@ -2,43 +2,49 @@
     {
         "id": 1,
         "name": "Javascript",
-        "img": "https://i.ibb.co/PMdS8VP/a.png",
-        "experience": "Screwdrivers are one of the most traditional of tools but are still indispensable for most electricians who frequently require access to electrical containers sealed with screws."
+        "img": "https://i.ibb.co/19B9X65/Java-Script.png",
+        "experience": "Experties"
     },
     {
         "id": 2,
         "name": "React.js",
-        "img": "https://i.ibb.co/6ZTCXgV/b.jpg",
-        "experience": "Their versatility means they can be used to accomplish a multitude of tasks requiring ‘torque’, working in a much more robust manner than would be possible with the use of bare hands alone."
+        "img": "https://i.ibb.co/1rmWk5b/react.png",
+        "experience": "Experties"
     },
     {
         "id": 3,
         "name": "TailwindCSS",
-        "img": "https://i.ibb.co/wWJP2Mq/c.jpg",
-        "experience": "It is also made from different materials, including PVC, vinyl, copper foil and glass cloth. Different varieties feature varying colours, widths, thicknesses, temperature tolerance, adhesion strength and insulating capabilities."
+        "img": "https://i.ibb.co/StjjgDt/tailwind.jpg",
+        "experience": "Experties"
     },
     {
         "id": 3,
         "name": "Bootraps",
-        "img": "https://i.ibb.co/wWJP2Mq/c.jpg",
-        "experience": "It is also made from different materials, including PVC, vinyl, copper foil and glass cloth. Different varieties feature varying colours, widths, thicknesses, temperature tolerance, adhesion strength and insulating capabilities."
+        "img": "https://i.ibb.co/7WjXrZT/boostrap.png",
+        "experience": "Experties"
     },
     {
         "id": 1,
         "name": "Node",
-        "img": "https://i.ibb.co/PMdS8VP/a.png",
-        "experience": "Screwdrivers are one of the most traditional of tools but are still indispensable for most electricians who frequently require access to electrical containers sealed with screws."
+        "img": "https://i.ibb.co/BnRB26s/node.png",
+        "experience": "Comfotable"
     },
     {
         "id": 2,
         "name": "Express",
-        "img": "https://i.ibb.co/6ZTCXgV/b.jpg",
-        "experience": "Their versatility means they can be used to accomplish a multitude of tasks requiring ‘torque’, working in a much more robust manner than would be possible with the use of bare hands alone."
+        "img": "https://i.ibb.co/d44pp45/express.png",
+        "experience": "Comfotable"
     },
     {
         "id": 3,
-        "name": "MongoDB",
-        "img": "https://i.ibb.co/wWJP2Mq/c.jpg",
-        "experience": "It is also made from different materials, including PVC, vinyl, copper foil and glass cloth. Different varieties feature varying colours, widths, thicknesses, temperature tolerance, adhesion strength and insulating capabilities."
+        "name": "HTML",
+        "img": "https://i.ibb.co/WKFqmhb/html.png",
+        "experience": "Experties"
+    },
+    {
+        "id": 3,
+        "name": "CSS",
+        "img": "https://i.ibb.co/vYnzsbY/css.png",
+        "experience": "Experties"
     }
 ]

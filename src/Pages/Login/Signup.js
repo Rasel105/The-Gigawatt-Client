@@ -90,7 +90,7 @@ const Login = () => {
                                 </div>
                                 <div className="mb-3">
                                     <input
-                                        type="confirm-password"
+                                        type="password"
                                         name='confirm-pass'
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         placeholder="Confirm Password" />
@@ -115,17 +115,14 @@ const Login = () => {
                                 </div>
 
                             </form>
-                            <a
+                            <button
                                 className="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
                                 onClick={() => signInWithGoogle()}
                                 style={{ backgroundColor: "#4285F4" }}
-                                href="#!"
-                                role="button"
-                                data-mdb-ripple="true"
                                 data-mdb-ripple-color="light">
                                 <FcGoogle size={25} className="mr-4" />
                                 Continue with Google
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>

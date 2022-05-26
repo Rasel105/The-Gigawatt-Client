@@ -14,7 +14,6 @@ const AddAProduct = () => {
     const onSubmit = (data, e) => {
         const image = data.img[0];
         const formData = new FormData();
-        console.log(formData);
         formData.append('image', image);
 
         const imageStoragekey = 'b2639cc473b6310b9150f37c91feb000';
@@ -52,7 +51,6 @@ const AddAProduct = () => {
                             } else {
                                 toast.error("Failed to add product");
                             }
-                            console.log("product", data);
                         })
                 }
             })

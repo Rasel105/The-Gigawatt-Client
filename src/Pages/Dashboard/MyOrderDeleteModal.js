@@ -14,14 +14,14 @@ const MyOrderDeleteModal = ({ deletinItem, setDeletingItem }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                
                 if (data.deletedCount) {
                     toast.success("Item Deleted");
                     setDeletingItem(null);
                 }
             })
     }
-    console.log(deletinItem);
+    
 
     return (
         <div>

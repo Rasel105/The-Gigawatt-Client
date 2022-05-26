@@ -10,7 +10,7 @@ const Portfolio = () => {
                 setPortfolio(data);
             })
     }, [])
-    console.log(portfolio);
+
     return (
         <div className='pt-16'>
             <h1 className='text-center mb-3 text-2xl underline'>My Portfolio</h1>
@@ -18,7 +18,7 @@ const Portfolio = () => {
                 <div className='m-4'>
                     <h2 className='text-3xl font-bold'>Md. Azadul Islam Rasel</h2>
                     <p className='text-xl'>Web Developer</p>
-                    <p className='text-lg'>Education: Dhaka Polytechnic Institute</p>
+                    <p className='text-lg'>Education: Diploma in Engineering (Computer Technology)</p>
                 </div>
                 <div className='m-4'>
                     <p className='text-xl'>Email: azad.is.rasel@gmail.com</p>
@@ -33,8 +33,8 @@ const Portfolio = () => {
                 <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-10 my-10'>
                     {
                         portfolio.map(port => <PortfolioCard
-                            port={port}
                             key={port._id}
+                            port={port} 
                         />)
                     }
 
@@ -67,22 +67,6 @@ const Portfolio = () => {
                 </Bounce>
             </div>
         </div>
-
-
-
-        // {/* <div class="card w-1/2 bg-base-100 shadow-xl mx-auto">
-        //                 <div class="card-body items-center text-center">
-        //                     <h2 class="card-title text-2xl">Md. Azadul Islam Rasel</h2>
-        //                     <p className='text-lg'><span className='font-bold'>Email:</span> azad.is.rasel@gmail.com</p>
-        //                     <p className='text-lg'><span className='font-bold'>Education:</span>  Dhaka Polytechnic Institute</p>
-        //                     <p className='text-lg'><span className='font-bold'>Department:</span>  Computer Technology</p>
-        //                     <p className='text-lg'><span className='font-bold'>Skills:</span>  HTML, CSS, Bootsrap5, TailwindCSS, React, Node, MonogDB</p>
-        //                     <p className='text-secondary text-lg'><span className='font-bold'>Project Link:</span> </p>
-        //                     <p className='text-lg'><span className='font-bold'>Megaventory:</span>  https://assignment-0011.web.app/</p>
-        //                     <p className='text-lg'><span className='font-bold'>UDreamDental:</span>  https://assignment-0010.web.app/</p>
-        //                     <p className='text-lg'><span className='font-bold'>The Gigawatt:</span>  https://the-gigawatt.web.app/</p>
-        //                 </div>
-        //             </div> */}
     );
 };
 

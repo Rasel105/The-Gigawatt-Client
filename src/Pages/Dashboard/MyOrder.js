@@ -4,7 +4,7 @@ import Zoom from 'react-reveal/Zoom';
 
 const MyOrder = ({ order, setDeletingItem, index }) => {
     const { _id, userName, paid, email, item, minimumOrder, totalPrice, transactionId } = order;
-    console.log(order);
+    
     return (
         <>
             <tr>

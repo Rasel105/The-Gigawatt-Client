@@ -22,7 +22,6 @@ const UserRow = ({ user, index, refetch }) => {
                     toast.success("Created Admin")
                     refetch();
                 }
-                console.log(data);
             })
     }
     return (

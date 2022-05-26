@@ -15,7 +15,6 @@ const MakeAdmin = () => {
     if (isLoading) {
         return <Loading />
     }
-    // console.log(users);
 
     return (
         <>

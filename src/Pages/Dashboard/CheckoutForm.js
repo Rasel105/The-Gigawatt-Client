@@ -72,7 +72,6 @@ const CheckoutForm = ({ payment }) => {
             setProcessing(false);
         } else {
             setCardError('');
-            console.log(paymentIntent)
             setTransactionId(paymentIntent.id)
             setSuccess("Congrats! Your payment is completed");
             toast.success("Yah! Payment Completed!");
@@ -94,7 +93,6 @@ const CheckoutForm = ({ payment }) => {
             }).then(res => res.json())
                 .then(data => {
                     setProcessing(false);
-                    console.log(data)
                 })
 
 

@@ -37,7 +37,6 @@ const AddAReview = () => {
             .then(data => {
                 toast.success(`Review added successfully`);
                 e.target.reset();
-                console.log('Success:', data);
             })
     }
     return (

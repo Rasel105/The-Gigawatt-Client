@@ -13,8 +13,7 @@ const ManageProducts = () => {
         return <Loading />
     }
 
-    console.log(products)
-
+    
     return (
         <>
             <h2 className='text-center text-2xl'>Manage Products</h2>

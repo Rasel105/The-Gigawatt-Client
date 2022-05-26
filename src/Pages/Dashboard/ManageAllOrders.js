@@ -17,7 +17,7 @@ const ManageAllOrders = () => {
     if (isLoading) {
         return <Loading />
     }
-    console.log(orders)
+
     return (
         <div>
             <h2 className='text-center text-2xl mb-2'>Manage All Products</h2>

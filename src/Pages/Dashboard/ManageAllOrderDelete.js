@@ -2,10 +2,9 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 const ManageAllOrderDelete = ({ deletinItem, setDeletingItem, refetch }) => {
-
-    const { email } = deletinItem;
+    const { _id } = deletinItem;
     const handleDelete = () => {
-        const url = `http://localhost:5000/myorder/${email}`;
+        const url = `http://localhost:5000/myorder/${_id}`;
         fetch(url, {
             method: 'DELETE',
             headers: {
@@ -13,8 +12,7 @@ const ManageAllOrderDelete = ({ deletinItem, setDeletingItem, refetch }) => {
             }
         })
             .then(res => res.json())
-            .then(data => {
-                console.log(data);
+            .then(data => {                
                 if (data.deletedCount) {
                     toast.success("Item Deleted");
                     setDeletingItem(null);

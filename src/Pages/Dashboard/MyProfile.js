@@ -18,7 +18,7 @@ const MyProfile = () => {
             })
     }, [email])
 
-    console.log(currentUser)
+
 
     return (
         <>

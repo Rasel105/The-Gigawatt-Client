@@ -24,7 +24,6 @@ const MyprofileUpdate = () => {
                 toast.success(`Profile update successfully`);
                 e.target.reset();
                 navigate('/dashboard/myprofile')
-                console.log('Success:', data);
             })
     }
     return (

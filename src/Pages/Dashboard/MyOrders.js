@@ -13,8 +13,7 @@ const MyOrders = () => {
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
 
-    // console.log(deletingItem);
-
+    
     useEffect(() => {
         if (user) {
             fetch(`http://localhost:5000/myorders?email=${user.email}`, {
@@ -33,7 +32,6 @@ const MyOrders = () => {
                 })
                 .then(data => {
                     setOrders(data)
-                    console.log(data)
                 })
         }
     }, [user, navigate, deletingItem])

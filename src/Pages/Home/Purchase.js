@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import ProductDetailModal from './ProductDetailModal';
@@ -9,6 +9,7 @@ import ProductDetailModal from './ProductDetailModal';
 const Purchase = () => {
     const [user] = useAuthState(auth);
     const [product, setProducts] = useState({});
+    const [btnDisable, setBtnDisabled] = useState(false);
 
     const email = user?.email;
     const userName = user?.displayName;
@@ -45,9 +46,11 @@ const Purchase = () => {
         }
 
         if (defaultMinimumOrder > minimumOrder) {
+            setBtnDisabled(true);
             return toast.error(`Order can't less than ${defaultMinimumOrder}`);
         }
         else if (minimumOrder >= availableQuantity) {
+            setBtnDisabled(true);
             return toast.error(`Your order must be less than ${availableQuantity}`)
         }
         else {
@@ -62,10 +65,10 @@ const Purchase = () => {
                 .then(result => {
                     toast.success(`Your order successfull`);
                     e.target.reset();
-                    console.log(result);
+
                     if (result.insertedId) {
                         const available_quantity = availableQuantity - minimumOrder;
-                        console.log(restItem)
+
                         fetch(`http://localhost:5000/purchase-update/${id}`, {
                             method: 'PATCH',
                             body: JSON.stringify({ available_quantity }),
@@ -75,7 +78,7 @@ const Purchase = () => {
                         })
                             .then(res => res.json())
                             .then(data => {
-                                console.log(data)
+
                             });
                     }
                 })

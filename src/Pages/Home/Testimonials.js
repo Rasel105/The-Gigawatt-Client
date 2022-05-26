@@ -20,7 +20,8 @@ const Testimonials = () => {
                 <div>
                     <div id="item1" className="grid lg:grid-cols-3 sm:grid-cols-1 gap-5 rounded-lg">
                         {
-                            testimonials.map(testimonial => <div key={testimonial._id} className='rounded shadow-lg p-5'>
+                            testimonials.map(testimonial => <div
+                                key ={testimonial._id} className='rounded shadow-lg p-5'>
                                 <div className='flex justify-center items-center mb-3'>
                                     <img className='rounded-full h-1/3 w-16' src={testimonial.img} alt="" />
                                     <h1 className='mx-5 text-primary'>{testimonial.name}</h1>

@@ -39,4 +39,4 @@ const ManageAllOrderDelete = ({ deletinItem, setDeletingItem, refetch }) => {
     );
 };
 
-export default ManageAllOrderDelete;
+export default ManageAllOrderDelete;    

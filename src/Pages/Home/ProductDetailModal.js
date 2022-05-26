@@ -7,7 +7,7 @@ const ProductDetailModal = ({ product, email, userName }) => {
             <input type="checkbox" id="all-info" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
-                    <label htmlhtmlFor="all-info" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="all-info" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <div className="card bg-base-100">
                         <div className="card-body">
                             <img className='mt-3 w-4/5' src={img} alt="" />

@@ -20,6 +20,7 @@ import MyProfile from './Pages/Dashboard/MyProfile';
 import AddAProduct from './Pages/Dashboard/AddAProduct';
 import Portfolio from './Pages/Portfolio.js/Portfolio';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
+import Reviews from './Pages/Home/Reviews';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path='/portfolio' element={<Portfolio />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
+        <Route path='/addareview' element={<Reviews />}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <ToastContainer />

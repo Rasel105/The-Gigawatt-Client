@@ -32,12 +32,13 @@ const Reviews = () => {
     }, [user, navigate])
     return (
         <>
-            <h2 className=' text-3xl text-center my-10'><span className='text-primary'>Review</span> {reviews.length}</h2>
-            <div>
+            <h2 className='text-3xl text-center pt-20'><span className='text-primary'>Review</span> {reviews.length}</h2>
+            <p className='text-center text-2xl my-3'>What's our valuable customer says</p>
+            <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-5 my-10'>
                 {
-                    reviews.map(review => <ReviewCard 
-                        key={review._id}
-                        review={review}
+                    reviews.map(rev => <ReviewCard
+                        key={rev._id}
+                        rev={rev}
                     />)
                 }
             </div>

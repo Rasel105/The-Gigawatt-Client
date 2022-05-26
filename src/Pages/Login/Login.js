@@ -16,7 +16,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    const [sendPasswordResetEmail, forgetSending, forgetError] = useSendPasswordResetEmail(auth);
+
     const [token] = useToken(gUser || user);
     let signInError
 
@@ -30,11 +30,11 @@ const Login = () => {
         }
     }, [token, from, navigate]);
 
-    if (loading || gLoading || forgetSending) {
+    if (loading || gLoading) {
         return <Loading />
     }
 
-    if (error || gError || forgetError) {
+    if (error || gError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
 

@@ -11,7 +11,7 @@ const MyOrder = ({ order, setDeletingItem, index }) => {
                 <td>{userName}</td>
                 <td>{email}</td>
                 <td>{item}</td>
-                <td>{totalPrice}</td>
+                <td>${totalPrice}</td>
                 <td>{minimumOrder}/pcs</td>
                 <td>
                     {(!paid) && <Link to={`/dashboard/payment/${_id}`}><button className='btn btn-xs btn-success text-white'>Pay</button></Link>}

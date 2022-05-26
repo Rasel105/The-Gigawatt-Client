@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ManageAllOrderRow = ({ order, index, refetch }) => {
-    const {address, item, minimumOrder, phone,totalPrice, userName, email } = order;
+const ManageAllOrderRow = ({ order, index, refetch, setDeletingItem }) => {
+    const { address, paid, item, minimumOrder, phone, totalPrice, userName, email } = order;
     return (
         <tr class="hover">
             <th>{index + 1}</th>
@@ -10,9 +10,10 @@ const ManageAllOrderRow = ({ order, index, refetch }) => {
             <td>{address}</td>
             <td>{phone}</td>
             <td>{item}</td>
-            <td>{minimumOrder}</td>
-            <td>{totalPrice}</td>
-            <td><button className="btn btn-xs btn-error text-white">Delete</button></td>
+            <td>{minimumOrder}/pcs</td>
+            <td>${totalPrice}</td>
+            <td>{paid ? <button className="btn btn-xs btn-primary text-white">Paid</button> : <button className="btn btn-xs btn-secondary text-white">Unpaid</button>}</td>
+            <td>{!paid && <label onClick={() => setDeletingItem(order)} htmlFor="all-order" className="btn btn-error btn-xs text-white modal-button">Delete</label>}</td>
         </tr>
     );
 };

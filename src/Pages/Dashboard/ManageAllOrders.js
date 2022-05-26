@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
+import ManageAllOrderDelete from './ManageAllOrderDelete';
 import ManageAllOrderRow from './ManageAllOrderRow';
 
 const ManageAllOrders = () => {
+    const [deletingItem, setDeletingItem] = useState(null)
     const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/orders`, {
         method: "GET",
         headers: {
@@ -31,6 +33,7 @@ const ManageAllOrders = () => {
                             <th>Ordered Item</th>
                             <th>Order Quantity</th>
                             <th>Total Price</th>
+                            <th>IsPaid</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -40,12 +43,20 @@ const ManageAllOrders = () => {
                                 key={order._id}
                                 index={index}
                                 order={order}
+                                setDeletingItem={setDeletingItem}
                                 refetch={refetch}
                             />)
                         }
                     </tbody>
                 </table>
             </div>
+            {
+                deletingItem && <ManageAllOrderDelete
+                    refetch={refetch}
+                    deletinItem={deletingItem}
+                    setDeletingItem={setDeletingItem}
+                />
+            }
         </div>
     );
 };

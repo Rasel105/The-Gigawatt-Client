@@ -1,11 +1,11 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const MyOrderDeleteModal = ({ deletinItem, setDeletingItem }) => {
-    const { _id } = deletinItem;
-    const handleDelete = () => {
+const ManageAllOrderDelete = ({ deletinItem, setDeletingItem, refetch }) => {
 
-        const url = `http://localhost:5000/orders-delete/${_id}`;
+    const { email } = deletinItem;
+    const handleDelete = () => {
+        const url = `http://localhost:5000/myorder/${email}`;
         fetch(url, {
             method: 'DELETE',
             headers: {
@@ -18,21 +18,20 @@ const MyOrderDeleteModal = ({ deletinItem, setDeletingItem }) => {
                 if (data.deletedCount) {
                     toast.success("Item Deleted");
                     setDeletingItem(null);
+                    refetch();
                 }
             })
     }
-    console.log(deletinItem);
-
     return (
         <div>
-            <input type="checkbox" id="all-info" className="modal-toggle" />
+            <input type="checkbox" id="all-order" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
-                    <label htmlFor="all-info" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="all-order" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <p className="py-4 text-xl">Are you sure to delete this item?</p>
                     <div className="modal-action">
                         <button onClick={() => handleDelete()} className="btn btn-xs btn-error text-white">Delete</button>
-                        <label htmlFor="all-info" className="btn btn-xs text-white">Cancel</label>
+                        <label htmlFor="all-order" className="btn btn-xs text-white">Cancel</label>
                     </div>
                 </div>
             </div>
@@ -40,4 +39,4 @@ const MyOrderDeleteModal = ({ deletinItem, setDeletingItem }) => {
     );
 };
 
-export default MyOrderDeleteModal;
+export default ManageAllOrderDelete;

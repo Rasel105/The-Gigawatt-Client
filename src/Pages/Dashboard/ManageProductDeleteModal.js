@@ -6,7 +6,7 @@ const ManageProductDeleteModal = ({ deletinItem, setDeletingItem, refetch }) => 
     const { _id } = deletinItem;
 
     const handleDelete = () => {
-        const url = `http://localhost:5000/product/${_id}`;
+        const url = `https://the-gigawatt.herokuapp.com/product/${_id}`;
         fetch(url, {
             method: 'DELETE',
             headers: {

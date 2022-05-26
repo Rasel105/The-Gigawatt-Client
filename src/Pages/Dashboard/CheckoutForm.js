@@ -13,7 +13,7 @@ const CheckoutForm = ({ payment }) => {
     const { _id, totalPrice, userName, email } = payment;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/create-payment-intent`, {
+        fetch(`https://the-gigawatt.herokuapp.com/create-payment-intent`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ const CheckoutForm = ({ payment }) => {
                 transactionId: paymentIntent.id
             }
 
-            fetch(`http://localhost:5000/payment-order/${_id}`, {
+            fetch(`https://the-gigawatt.herokuapp.com/payment-order/${_id}`, {
                 method: "PATCH",
                 headers: {
                     'Content-Type': 'application/json',

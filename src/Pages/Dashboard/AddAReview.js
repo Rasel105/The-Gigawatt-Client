@@ -26,7 +26,7 @@ const AddAReview = () => {
             email: email,
         }
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://the-gigawatt.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

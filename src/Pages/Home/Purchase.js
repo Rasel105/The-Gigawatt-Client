@@ -16,7 +16,7 @@ const Purchase = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `https://the-gigawatt.herokuapp.com/product/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -54,7 +54,7 @@ const Purchase = () => {
             return toast.error(`Your order must be less than ${availableQuantity}`)
         }
         else {
-            fetch(`http://localhost:5000/purchase`, {
+            fetch(`https://the-gigawatt.herokuapp.com/purchase`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ const Purchase = () => {
                     if (result.insertedId) {
                         const available_quantity = availableQuantity - minimumOrder;
 
-                        fetch(`http://localhost:5000/purchase-update/${id}`, {
+                        fetch(`https://the-gigawatt.herokuapp.com/purchase-update/${id}`, {
                             method: 'PATCH',
                             body: JSON.stringify({ available_quantity }),
                             headers: {

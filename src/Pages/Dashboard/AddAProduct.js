@@ -35,7 +35,7 @@ const AddAProduct = () => {
                         available_quantity: data.available_quantity,
                         description: data.description
                     }
-                    fetch('http://localhost:5000/product', {
+                    fetch('https://the-gigawatt.herokuapp.com/product', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

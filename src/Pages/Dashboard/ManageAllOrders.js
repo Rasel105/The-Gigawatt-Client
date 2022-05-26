@@ -6,7 +6,7 @@ import ManageAllOrderRow from './ManageAllOrderRow';
 
 const ManageAllOrders = () => {
     const [deletingItem, setDeletingItem] = useState(null)
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/orders`, {
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://the-gigawatt.herokuapp.com/orders`, {
         method: "GET",
         headers: {
             'authorization': `Bearer ${localStorage.getItem("accessToken")}`

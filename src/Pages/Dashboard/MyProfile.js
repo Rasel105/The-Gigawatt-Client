@@ -11,7 +11,7 @@ const MyProfile = () => {
     const email = user?.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user-profile/${email}`)
+        fetch(`https://the-gigawatt.herokuapp.com/user-profile/${email}`)
             .then(res => res.json())
             .then(data => {
                 setCurrentUser(data);

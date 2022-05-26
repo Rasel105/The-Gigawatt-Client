@@ -5,7 +5,7 @@ const MyOrderDeleteModal = ({ deletinItem, setDeletingItem }) => {
     const { _id } = deletinItem;
     const handleDelete = () => {
 
-        const url = `http://localhost:5000/orders-delete/${_id}`;
+        const url = `https://the-gigawatt.herokuapp.com/orders-delete/${_id}`;
         fetch(url, {
             method: 'DELETE',
             headers: {

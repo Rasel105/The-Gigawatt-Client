@@ -10,7 +10,7 @@ const stripePromise = loadStripe('pk_test_51L0bHqBqGGr0Fo7RYZArm0gxQiaQHYZqcXnNm
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/payment/${id}`;
+    const url = `https://the-gigawatt.herokuapp.com/payment/${id}`;
     const { data: payment, isLoading } = useQuery(["payment", id], () => fetch(url, {
         method: "GET",
         headers: {

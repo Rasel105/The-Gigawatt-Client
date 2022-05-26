@@ -12,7 +12,7 @@ const MyprofileUpdate = () => {
     const email = user?.email;
 
     const onSubmit = (data, e) => {
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(`https://the-gigawatt.herokuapp.com/user/${email}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

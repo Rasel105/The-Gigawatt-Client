@@ -17,7 +17,7 @@ const Reviews = () => {
     return (
         <>
             <h2 className='text-3xl text-center pt-20'><span className='text-primary'>Review</span> {reviews.length}</h2>
-            <p className='text-center text-2xl m'>What's our valuable customer says</p>
+            <p className='text-center text-2xl my-3'>What's our valuable customer says</p>
             <Zoom left>
                 <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-5 mb-10'>
                     {

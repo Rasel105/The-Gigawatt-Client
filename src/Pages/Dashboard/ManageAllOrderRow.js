@@ -6,7 +6,7 @@ const ManageAllOrderRow = ({ order, index, refetch, setDeletingItem }) => {
     const { _id, address, paid, status, item, minimumOrder, phone, totalPrice, userName, email } = order;
     const handleChangeStatus = (id) => {
         const status = "shipped";
-        fetch(`http://localhost:5000/shipped/${id}`, {
+        fetch(`https://the-gigawatt.herokuapp.com/shipped/${id}`, {
             method: 'PATCH',
             body: JSON.stringify({ status }),
             headers: {

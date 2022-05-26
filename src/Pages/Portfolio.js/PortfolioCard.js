@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const PortfolioCard = ({ port }) => {
     const { name, experience, img } = port;
     return (
@@ -14,7 +15,6 @@ const PortfolioCard = ({ port }) => {
                 <p className=''>{experience}</p>
             </div>
         </div>
-
     );
 };
 

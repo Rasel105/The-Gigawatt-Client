@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import PortfolioCard from './PortfolioCard';
-
+import Bounce from 'react-reveal/Bounce';
 const Portfolio = () => {
     const [portfolio, setPortfolio] = useState([]);
     useEffect(() => {
@@ -29,6 +28,8 @@ const Portfolio = () => {
             </div>
             <div className='px-10'>
                 <h1 className='text-3xl text-center my-10'>Skills</h1>
+
+
                 <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-10 my-10'>
                     {
                         portfolio.map(port => <PortfolioCard
@@ -36,30 +37,34 @@ const Portfolio = () => {
                             key={port._id}
                         />)
                     }
+
                 </div>
-                <div className='my-10'>
-                    <h1 className='text-3xl text-center my-10'>Project</h1>
-                    <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-10'>
-                        <div class="card w-96 bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <h2 class="card-title">Megaventory</h2>
-                                <p className='text-primary'><a href="https://assignment-0011.web.app/">Click to Expore</a></p>
+
+                <Bounce left cascade>
+                    <div className='my-10'>
+                        <h1 className='text-3xl text-center my-10'>Project</h1>
+                        <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-10'>
+                            <div class="card w-96 bg-base-100 shadow-xl">
+                                <div class="card-body">
+                                    <h2 class="card-title">Megaventory</h2>
+                                    <p className='text-primary'><a href="https://assignment-0011.web.app/">Click to Expore</a></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card w-96 bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <h2 class="card-title">UDreamDental</h2>
-                                <p className='text-primary'><a href="https://assignment-0010.web.app/">Click to Expore</a></p>
+                            <div class="card w-96 bg-base-100 shadow-xl">
+                                <div class="card-body">
+                                    <h2 class="card-title">UDreamDental</h2>
+                                    <p className='text-primary'><a href="https://assignment-0010.web.app/">Click to Expore</a></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card w-96 bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <h2 class="card-title">The Gigawatt </h2>
-                                <p className='text-primary'><a href="https://the-gigawatt.web.app/">Click to Expore</a></p>
+                            <div class="card w-96 bg-base-100 shadow-xl">
+                                <div class="card-body">
+                                    <h2 class="card-title">The Gigawatt </h2>
+                                    <p className='text-primary'><a href="https://the-gigawatt.web.app/">Click to Expore</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </Bounce>
             </div>
         </div>
 

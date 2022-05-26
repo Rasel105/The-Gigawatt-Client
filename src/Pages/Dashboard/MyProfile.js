@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Slide from 'react-reveal/Slide';
 
 const MyProfile = () => {
     const [currentUser, setCurrentUser] = useState({});
@@ -38,13 +39,15 @@ const MyProfile = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>{name}</td>
-                                <td>{email}</td>
-                                <td>{currentUser.education}</td>
-                                <td>{currentUser.city}</td>
-                                <td>{currentUser.linkedin}</td>
-                            </tr>
+                            <Slide left cascade>
+                                <tr>
+                                    <td>{name}</td>
+                                    <td>{email}</td>
+                                    <td>{currentUser.education}</td>
+                                    <td>{currentUser.city}</td>
+                                    <td>{currentUser.linkedin}</td>
+                                </tr>
+                            </Slide>
                         </tbody>
                     </table>
                 </div>

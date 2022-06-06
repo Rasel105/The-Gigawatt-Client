@@ -19,15 +19,17 @@
 If Admin add product it will show the all product here.
 
 * below the procuct card section.
-* the product section, every card has a button which is manage you can called update button is anybody click the button he/she will redirect the inventories page, when he/she is in inventories page he will see the two section which are all product information, and the a button which is delivered if click the button one item will be decreased. another section is add products like if item product is down or low, here you update of add your desired products.
-* below of the card section you will find a button which is Manage Inventories if you click the button you will redirect the manage inventories page then you can see all the product and if you want you can delete the product. when you want to click, then click the delete red button and you can see a cofirmation dialoage.
-* at the of of the manage inventories table you can a see a button called Add Item. if you want you can add items. then click the button then the button will redirect add item form. then you can add your desired item. at the of form you can see your email. the user email always appear at this form.
-* as you can see in the navbar there is a button called myitem, every user has his indisual items, like when he or she add items he/she just can see his item it this page.
-* there is also another button which is blogs. if you click this button you can see all the blogs,
-* there lastly another button whick is add blogs if you want you can also add your blogs.
-* on the home page you can see another section which is Delers section here are the most valuable dealers.
-* on the last section you can the most recent transaction of the this inventories site is a tabular form.
-* lastly I have a footer.
-* I try to animate every page of this project. 
+* The are bussiness summary section where I have all the bussines
+* After that I have Bussiness Review When user add any kind of review it will show this section.
+* Then I have Bussiness Our dealer section  
+* I have created why choose us section.
+* After that I have Footer secion.
+* When User click buy now button in the service section card it will redict to the purchase section and the user can see all the info of the product and default order item. use can't order minimum of the order and up of the availble order. the it will show error.
+* When user add a order the order will only show for indivisul user in the dashoboard, in my order section, from there use can, Delete the order also can pay the order. if user want to pay it will then click the payment button it will redict to the  payment button then can payement with stripe after completed the payment in my order section it shoe the transectionId and also show on the payment route.
 
-    
+* Then user can review
+
+# About admin dashboad
+
+* When Admin Login he/she when go to the Dashboad section just can see the My profile, Add Item, Make Admin,  Manage product and  Manage All Order.
+* I try to animate every page of this project.

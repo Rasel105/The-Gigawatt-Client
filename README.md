@@ -1,19 +1,23 @@
-# Get't get start with MEGAVENTORY
+# Get't get start with "The Gigawatt"
 
-## The name of the project is  [MEGAVENTORY](https://assignment-0011.web.app/)
+## The name of the project is  [The Gigawatt](https://the-gigawatt.web.app/)
 ## Project overview
 
+# Admin Creditions: admin@gmail.com and password: 123456
 
-
-* The MEGAVENTORY project, we use for the Frontend some of Technology like Tailwindcss, react, react router, react icon, react toastify, react-firebase hooks, react-reveal and so on.
-* The MEGAVENTORY project we use for the Backend some of Technology like MongoDB, nodeJS, expressJS, cors, dotenv and so on.
+* The Gigawatt project, we use for the Frontend some of Technology like Tailwindcss, react, react router, react icon, react toastify, react-firebase hooks, react-reveal and so on.
+* The Gigawatt project we use for the Backend some of Technology like MongoDB, nodeJS, expressJS, cors, dotenv and so on.
+* The Gigawatt project we use Stripe for payment gateway system.
 * and for the deployment we use Firebase for the Frontend and for the Backend we use Heroku.
 
 ## Let's move on the project overview. `
 
-* First of at the top of the Inventory site, I have a header. If user is not login. the has three button like Home/Megaventory, Login and Register
-* When user log in the navbar has  8 button. Megaventory, Home, ManageItems, add items, My Items, Blogs, add blogs and signout, 
-* below of navbar the page has a banner section and then, TOP SALEa PRODUCTS List there are 6 product mainly 
+* First of at the top of the Gigawatt site, I have a header. If user is not login. User just can see The Gigawatt Ico, Home, Blogs, Portfolio and Login, 
+
+* When user log in the navbar has  6 button. Gigawatt, Home, Dashboard, Blogs, Portfolio and signout.
+* below of navbar the page has a banner section and then, TOP PRODUCTS List there are 5 product mainly 
+If Admin add product it will show the all product here.
+
 * below the procuct card section.
 * the product section, every card has a button which is manage you can called update button is anybody click the button he/she will redirect the inventories page, when he/she is in inventories page he will see the two section which are all product information, and the a button which is delivered if click the button one item will be decreased. another section is add products like if item product is down or low, here you update of add your desired products.
 * below of the card section you will find a button which is Manage Inventories if you click the button you will redirect the manage inventories page then you can see all the product and if you want you can delete the product. when you want to click, then click the delete red button and you can see a cofirmation dialoage.

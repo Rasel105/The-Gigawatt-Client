@@ -32,4 +32,5 @@ If Admin add product it will show the all product here.
 # About admin dashboad
 
 * When Admin Login he/she when go to the Dashboad section just can see the My profile, Add Item, Make Admin,  Manage product and  Manage All Order.
+
 * I try to animate every page of this project.

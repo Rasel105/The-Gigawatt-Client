@@ -15,7 +15,7 @@ const Reviews = () => {
 
 
     return (
-        <>
+        <div className='h-screen'>
             <h2 className='text-3xl text-center pt-20'><span className='text-primary'>Review</span> {reviews.length}</h2>
             <p className='text-center text-2xl my-3'>What's our valuable customer says</p>
             <Zoom left>
@@ -28,7 +28,7 @@ const Reviews = () => {
                     }
                 </div>
             </Zoom>
-        </>
+        </div>
     );
 };
 

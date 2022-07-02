@@ -1,32 +1,48 @@
 import React from 'react';
-import { FcPositiveDynamic, FcSupport } from "react-icons/fc";
-import { VscOpenPreview } from 'react-icons/vsc';
+import { IoIosPeople } from 'react-icons/io';
+import { FaMoneyBillWave, FaTools, FaFlag } from 'react-icons/fa';
 import Rotate from 'react-reveal/Rotate';
 
 const BussinessSummary = () => {
     return (
         <Rotate bottom left>
-            <section className='w-9/12 mx-auto my-16'>
-                <h2 className='text-4xl text-center text-primary my-3'>Bussiness Summary</h2>
-                <h2 className='text-2xl text-center mb-5'>Try to understand user expectaion</h2>
-                <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-10 justify-items-center items-center'>
-                    <div className='flex flex-col items-center bg-slate-200 p-7 rounded-3xl'>
-                        <FcPositiveDynamic size={100} />
-                        <h2 className='text-5xl'>120M+</h2>
-                        <h2 className='text-3xl'>Annual revenue</h2>
+            <div className='mt-28'>
+                <h1 className='text-4xl font-bold text-center mb-24 divider'><span className='text-primary'>Business</span> Summary</h1>
+                <div className="stats shadow grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+                    <div className="stat w-25 text-center">
+                        <div className="text-6xl m-auto text-primary">
+                            <IoIosPeople />
+                        </div>
+                        <div className="stat-value text-primary">500+</div>
+                        <div className="stat-title text-2xl">Happy Customers</div>
                     </div>
-                    <div className='flex flex-col items-center bg-slate-200 p-7 rounded-3xl'>
-                        <VscOpenPreview size={100} />
-                        <h2 className='text-5xl'>33K+</h2>
-                        <p className='text-3xl'>Customer Reviews</p>
+
+                    <div className="stat w-25 text-center">
+                        <div className="text-6xl m-auto text-secondary">
+                            <FaMoneyBillWave />
+                        </div>
+                        <div className="stat-value text-secondary">$2.6M</div>
+                        <div className="stat-title text-2xl">Annual Revenue</div>
                     </div>
-                    <div className='flex flex-col items-center bg-slate-200 p-7 rounded-3xl'>
-                        <FcSupport color='green' size={100} />
-                        <h2 className='text-5xl'>50+</h2>
-                        <h2 className='text-3xl'>Tools / Prouducts</h2>
+
+                    <div className="stat w-25 text-center">
+                        <div className="text-6xl m-auto text-primary">
+                            <FaTools />
+                        </div>
+                        <div className="stat-value text-primary mt-3 mb-3">100+</div>
+                        <div className="stat-title text-2xl">Tools/Parts</div>
                     </div>
+
+                    <div className="stat w-25 text-center">
+                        <div className="text-6xl m-auto text-secondary">
+                            <FaFlag />
+                        </div>
+                        <div className="stat-value text-secondary mt-3 mb-3">50+</div>
+                        <div className="stat-title text-2xl">Countries</div>
+                    </div>
+
                 </div>
-            </section>
+            </div>
         </Rotate>
     );
 };

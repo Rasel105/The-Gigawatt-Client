@@ -12,7 +12,7 @@ const Portfolio = () => {
     }, [])
 
     return (
-        <div className='pt-16'>
+        <div className='pt-20'>
             <h1 className='text-center mb-3 text-2xl underline'>My Portfolio</h1>
             <div className='grid sm:grid-cols-1 lg:grid-cols-2 justify-between w-9/12 mx-auto '>
                 <div className='m-4'>

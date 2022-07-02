@@ -34,7 +34,7 @@ const AddAProduct = () => {
                         min_order_quantity: data.min_order_quantity,
                         available_quantity: data.available_quantity,
                         description: data.description
-                    }
+                    };
                     fetch('https://the-gigawatt.herokuapp.com/product', {
                         method: "POST",
                         headers: {

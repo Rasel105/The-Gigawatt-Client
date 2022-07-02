@@ -9,7 +9,7 @@ const OurDealers = () => {
             .then(data => setDealers(data));
     }, [])
     return (
-        <div>
+        <div className='h-screen'>
             <h2 className='text-center text-5xl mb-3'>Our <span className='text-sky-500'>Dealers</span></h2>
             <div className='container w-full mx-auto grid gap-5 md:grid-cols-4 sm:grid-cols-1 bg-slate-100 p-8 rounded'>
                 {

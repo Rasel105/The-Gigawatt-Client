@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../Shared/Footer';
 import Banner from './Banner';
 import BussinessSummary from './BussinessSummary';
+import Contact from './Contact';
 import OurDealers from './OurDealers';
 import Reviews from './Reviews';
 import Testimonials from './Testimonials';
@@ -17,7 +18,8 @@ const Home = () => {
             <Reviews />
             <OurDealers />
             {/* <Testimonials /> */}
-            <WhyChooseUs />
+            {/* <WhyChooseUs /> */}
+            <Contact />
             <Footer />
         </div>
     );

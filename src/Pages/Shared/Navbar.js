@@ -16,14 +16,14 @@ const Navbar = () => {
     };
 
     const NavItem = <>
-        <li><Link to="/">Home</Link></li>
-        {user ? <li><Link to="/dashboard">Dashboard</Link></li> : ""}
-        <li><Link to="/blogs">Blogs</Link></li>
-        <li><Link to="/portfolio">Portfolio</Link></li>
-        <li>{user ? <button onClick={logout} className="btn btn-ghost text-normal">Sing Out</button> : <Link to="/login">Login</Link>}</li>
+        <li className='text-xl'><Link to="/">Home</Link></li>
+        {user ? <li><Link className='text-xl' to="/dashboard">Dashboard</Link></li> : ""}
+        <li className='text-xl'><Link to="/blogs">Blogs</Link></li>
+        <li className='text-xl'><Link to="/portfolio">Portfolio</Link></li>
+        <li className='text-xl'>{user ? <button onClick={logout} className=" text-xl">Sing Out</button> : <Link to="/login">Login</Link>}</li>
     </>
     return (
-        <div className="navbar bg-base-100 fixed z-30 px-12 mb-10">
+        <div className="navbar bg-base-100 fixed z-30 px-12 mb-10 shadow-md">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">

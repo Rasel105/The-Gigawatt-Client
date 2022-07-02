@@ -11,16 +11,15 @@ const Tool = ({ product }) => {
                 <div className="card-body">
                     <h2 className="card-title">{product_name}</h2>
                     <p>{description.slice(0, 120)}</p>
-                    <h2 className='text-xl'>Mininum order Quantity: {min_order_quantity}/pcs</h2>
-                    <h2 className='text-xl'>Available Quantity: {available_quantity}/pcs</h2>
-                    <h2 className='text-xl'>Price: ${price}</h2>
+                    <h2 className='text-lg text-black'>Mininum order quantity: {min_order_quantity}/pcs</h2>
+                    <h2 className='text-lg'>Available quantity: {available_quantity}/pcs</h2>
+                    <h2 className='text-lg'>Price: ${price}</h2>
                     <div className="card-actions justify-end">
                         <Link to={`/purchase/${_id}`} className="btn btn-primary">Buy Now</Link>
                     </div>
                 </div>
             </div>
         </Slide>
-
     );
 };
 
